@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.SignUpActivity3">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/bloodiconimg"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/blood_drop" />
+
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="What is Your"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/bloodGroupLayout"
+            app:layout_constraintTop_toBottomOf="@+id/bloodiconimg" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Blood Group"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/textView5"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/bloodGroupLayout"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+
+        <LinearLayout
+            android:id="@+id/bloodGroupLayout"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:src="@drawable/blood_drop">
+
+                    <LinearLayout
+                        android:id="@+id/aPositive"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/round_shape"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:src="@drawable/blood_drop">
+
+                        <TextView
+                            android:id="@+id/bloodAPositive"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="A+"
+                            android:textColor="#c70100"
+                            android:gravity="center"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:src="@drawable/blood_drop">
+
+                    <LinearLayout
+                        android:id="@+id/aMinus"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/round_shape"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:src="@drawable/blood_drop">
+
+                        <TextView
+                            android:id="@+id/bloodAMinus"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="A-"
+                            android:textColor="#c70100"
+
+                            android:gravity="center"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:src="@drawable/blood_drop">
+
+                    <LinearLayout
+                        android:id="@+id/bPositive"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/round_shape"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:src="@drawable/blood_drop">
+
+                        <TextView
+                            android:id="@+id/bloodANegative"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="B+"
+                            android:textColor="#c70100"
+
+                            android:gravity="center"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:src="@drawable/blood_drop">
+
+                    <LinearLayout
+                        android:id="@+id/bNegative"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/round_shape"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:src="@drawable/blood_drop">
+
+                        <TextView
+                            android:id="@+id/bloodBNegative"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="B-"
+                            android:textColor="#c70100"
+
+                            android:gravity="center"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:src="@drawable/blood_drop">
+
+                    <LinearLayout
+                        android:id="@+id/oPositive"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/round_shape"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:src="@drawable/blood_drop">
+
+                        <TextView
+                            android:id="@+id/bloodOPositive"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="O+"
+                            android:textColor="#c70100"
+
+                            android:gravity="center"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:src="@drawable/blood_drop">
+
+                    <LinearLayout
+                        android:id="@+id/oNegative"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/round_shape"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:src="@drawable/blood_drop">
+
+                        <TextView
+                            android:id="@+id/bloodONegative"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="O-"
+                            android:textColor="#c70100"
+
+                            android:gravity="center"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:src="@drawable/blood_drop">
+
+                    <LinearLayout
+                        android:id="@+id/abPositive"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/round_shape"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:src="@drawable/blood_drop">
+
+                        <TextView
+                            android:id="@+id/bloodABPositive"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="AB+"
+                            android:textColor="#c70100"
+
+                            android:gravity="center"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:src="@drawable/blood_drop">
+
+                    <LinearLayout
+                        android:id="@+id/abNegative"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/round_shape"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:src="@drawable/blood_drop">
+
+                        <TextView
+                            android:id="@+id/bloodABNegative"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="AB-"
+                            android:textColor="#c70100"
+
+                            android:gravity="center"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:src="@drawable/blood_drop">
+
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:id="@+id/baPositive"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/round_shape"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:src="@drawable/blood_drop">
+
+                        <TextView
+                            android:id="@+id/bloodBPositive"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="B+"
+                            android:gravity="center"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/signUpNextBtn"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/login_button_shape"
+            android:backgroundTint="#c70100"
+            android:text="Next"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Your Blood Group needs to be Accurate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.519"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bloodGroupLayout" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
