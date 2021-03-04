@@ -14,7 +14,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@drawable/nav_round_corners"
-        android:elevation="5dp"
         app:cnb_menuResource="@menu/bottom_nav_menu"
         app:cnb_orientationMode="horizontal"
         app:cnb_radius="30dp"

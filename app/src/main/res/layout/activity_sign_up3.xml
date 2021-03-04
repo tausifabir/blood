@@ -18,10 +18,10 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="32dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/blood_drop" />
+            app:srcCompat="@drawable/small_logo" />
 
 
         <TextView
@@ -33,23 +33,20 @@
             android:textSize="32sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/bloodGroupLayout"
+            app:layout_constraintHorizontal_bias="0.282"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bloodiconimg" />
 
         <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="8dp"
             android:text="Blood Group"
             android:textSize="32sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/textView5"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/bloodGroupLayout"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
 
         <LinearLayout
             android:id="@+id/bloodGroupLayout"
@@ -71,31 +68,30 @@
                 android:orientation="horizontal">
 
 
-
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical"
                     android:gravity="center"
+                    android:orientation="vertical"
                     android:src="@drawable/blood_drop">
 
                     <LinearLayout
                         android:id="@+id/aPositive"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/round_shape"
-                        android:orientation="vertical"
                         android:gravity="center"
+                        android:orientation="vertical"
                         android:src="@drawable/blood_drop">
 
                         <TextView
                             android:id="@+id/bloodAPositive"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:gravity="center"
                             android:text="A+"
-                            android:textColor="#c70100"
-                            android:gravity="center"/>
+                            android:textColor="#c70100" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -104,27 +100,27 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical"
                     android:gravity="center"
+                    android:orientation="vertical"
                     android:src="@drawable/blood_drop">
 
                     <LinearLayout
                         android:id="@+id/aMinus"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/round_shape"
-                        android:orientation="vertical"
                         android:gravity="center"
+                        android:orientation="vertical"
                         android:src="@drawable/blood_drop">
 
                         <TextView
                             android:id="@+id/bloodAMinus"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:gravity="center"
                             android:text="A-"
-                            android:textColor="#c70100"
 
-                            android:gravity="center"/>
+                            android:textColor="#c70100" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -133,27 +129,27 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical"
                     android:gravity="center"
+                    android:orientation="vertical"
                     android:src="@drawable/blood_drop">
 
                     <LinearLayout
                         android:id="@+id/bPositive"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/round_shape"
-                        android:orientation="vertical"
                         android:gravity="center"
+                        android:orientation="vertical"
                         android:src="@drawable/blood_drop">
 
                         <TextView
                             android:id="@+id/bloodANegative"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:gravity="center"
                             android:text="B+"
-                            android:textColor="#c70100"
 
-                            android:gravity="center"/>
+                            android:textColor="#c70100" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -172,27 +168,27 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical"
                     android:gravity="center"
+                    android:orientation="vertical"
                     android:src="@drawable/blood_drop">
 
                     <LinearLayout
                         android:id="@+id/bNegative"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/round_shape"
-                        android:orientation="vertical"
                         android:gravity="center"
+                        android:orientation="vertical"
                         android:src="@drawable/blood_drop">
 
                         <TextView
                             android:id="@+id/bloodBNegative"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:gravity="center"
                             android:text="B-"
-                            android:textColor="#c70100"
 
-                            android:gravity="center"/>
+                            android:textColor="#c70100" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -201,27 +197,27 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical"
                     android:gravity="center"
+                    android:orientation="vertical"
                     android:src="@drawable/blood_drop">
 
                     <LinearLayout
                         android:id="@+id/oPositive"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/round_shape"
-                        android:orientation="vertical"
                         android:gravity="center"
+                        android:orientation="vertical"
                         android:src="@drawable/blood_drop">
 
                         <TextView
                             android:id="@+id/bloodOPositive"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:gravity="center"
                             android:text="O+"
-                            android:textColor="#c70100"
 
-                            android:gravity="center"/>
+                            android:textColor="#c70100" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -230,27 +226,27 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical"
                     android:gravity="center"
+                    android:orientation="vertical"
                     android:src="@drawable/blood_drop">
 
                     <LinearLayout
                         android:id="@+id/oNegative"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/round_shape"
-                        android:orientation="vertical"
                         android:gravity="center"
+                        android:orientation="vertical"
                         android:src="@drawable/blood_drop">
 
                         <TextView
                             android:id="@+id/bloodONegative"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:gravity="center"
                             android:text="O-"
-                            android:textColor="#c70100"
 
-                            android:gravity="center"/>
+                            android:textColor="#c70100" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -263,31 +259,32 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="horizontal">
+
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical"
                     android:gravity="center"
+                    android:orientation="vertical"
                     android:src="@drawable/blood_drop">
 
                     <LinearLayout
                         android:id="@+id/abPositive"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/round_shape"
-                        android:orientation="vertical"
                         android:gravity="center"
+                        android:orientation="vertical"
                         android:src="@drawable/blood_drop">
 
                         <TextView
                             android:id="@+id/bloodABPositive"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:gravity="center"
                             android:text="AB+"
-                            android:textColor="#c70100"
 
-                            android:gravity="center"/>
+                            android:textColor="#c70100" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -296,27 +293,27 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical"
                     android:gravity="center"
+                    android:orientation="vertical"
                     android:src="@drawable/blood_drop">
 
                     <LinearLayout
                         android:id="@+id/abNegative"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/round_shape"
-                        android:orientation="vertical"
                         android:gravity="center"
+                        android:orientation="vertical"
                         android:src="@drawable/blood_drop">
 
                         <TextView
                             android:id="@+id/bloodABNegative"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:gravity="center"
                             android:text="AB-"
-                            android:textColor="#c70100"
 
-                            android:gravity="center"/>
+                            android:textColor="#c70100" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -325,26 +322,26 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical"
                     android:gravity="center"
+                    android:orientation="vertical"
                     android:src="@drawable/blood_drop">
 
                     <LinearLayout
-                        android:visibility="gone"
                         android:id="@+id/baPositive"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@drawable/round_shape"
-                        android:orientation="vertical"
                         android:gravity="center"
-                        android:src="@drawable/blood_drop">
+                        android:orientation="vertical"
+                        android:src="@drawable/blood_drop"
+                        android:visibility="gone">
 
                         <TextView
                             android:id="@+id/bloodBPositive"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="B+"
-                            android:gravity="center"/>
+                            android:gravity="center"
+                            android:text="B+" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -365,19 +362,44 @@
             android:textAllCaps="false"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+            app:layout_constraintTop_toBottomOf="@+id/textView51" />
 
         <TextView
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Your Blood Group needs to be Accurate"
+            android:text="Your Blood Group need to be"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.519"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bloodGroupLayout" />
+
+        <TextView
+            android:id="@+id/textView46"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="accurate. If you don't know"
+            app:layout_constraintEnd_toEndOf="@+id/textView9"
+            app:layout_constraintStart_toStartOf="@+id/textView9"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+        <TextView
+            android:id="@+id/textView47"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="about it. Please contact nearest"
+            app:layout_constraintEnd_toEndOf="@+id/textView46"
+            app:layout_constraintStart_toStartOf="@+id/textView46"
+            app:layout_constraintTop_toBottomOf="@+id/textView46" />
+
+        <TextView
+            android:id="@+id/textView51"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="clinic"
+            app:layout_constraintEnd_toEndOf="@+id/textView47"
+            app:layout_constraintStart_toStartOf="@+id/textView47"
+            app:layout_constraintTop_toBottomOf="@+id/textView47" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

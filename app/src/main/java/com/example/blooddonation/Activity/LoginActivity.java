@@ -7,16 +7,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.apollographql.apollo.ApolloCall;
-import com.apollographql.apollo.ApolloClient;
-import com.apollographql.apollo.api.Operation;
-import com.apollographql.apollo.api.Query;
+
+
 import com.example.blooddonation.R;
+
 
 import org.jetbrains.annotations.NotNull;
 
+
+
 public class LoginActivity extends AppCompatActivity {
+
+
+    public  static final String baseUrl ="https://newsapi.org/";
 
     private Button loginBtn;
     private TextView signUp,forgotTV;
@@ -34,9 +39,9 @@ public class LoginActivity extends AppCompatActivity {
 
         // First, create an `ApolloClient`
 // Replace the serverUrl with your GraphQL endpoint
-        ApolloClient apolloClient = ApolloClient.builder()
-                .serverUrl("https://apollo-fullstack-tutorial.herokuapp.com/")
-                .build();
+
+
+
 
 
 

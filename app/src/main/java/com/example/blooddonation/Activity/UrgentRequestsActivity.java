@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.blooddonation.Adapter.DonationAdapter;
@@ -18,6 +20,8 @@ public class UrgentRequestsActivity extends AppCompatActivity {
     private UrgentRequestAdapter urgentRequestAdapter;
 
     private RecyclerView urgentRecyclerview;
+
+    private Spinner sortSpinner;
 
 
     @Override
@@ -34,6 +38,12 @@ public class UrgentRequestsActivity extends AppCompatActivity {
         fragmentTittle.add("Request");
         fragmentTittle.add("Info");
         fragmentTittle.add("Contact");
+
+
+        //sortSpinner = findViewById(R.id.sortSpinner);
+        ArrayAdapter<String> relativeSpinnerAdapter = new ArrayAdapter(this,android.R.layout.simple_dropdown_item_1line,fragmentTittle);
+
+       // sortSpinner.setAdapter(relativeSpinnerAdapter);
 
         urgentRequestAdapter = new UrgentRequestAdapter(UrgentRequestsActivity.this,fragmentTittle);
 

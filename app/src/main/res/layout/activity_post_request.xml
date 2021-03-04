@@ -108,6 +108,8 @@
             android:background="@drawable/login_shape"
             android:paddingLeft="15dp"
             android:inputType="textPassword"
+
+
             android:textAlignment="textStart"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.492"
@@ -187,6 +189,7 @@
             app:layout_constraintStart_toEndOf="@+id/checkBox"
             app:layout_constraintTop_toBottomOf="@+id/relativeSpinner" />
 
+
         <TextView
             android:id="@+id/textView45"
             android:layout_width="wrap_content"
@@ -196,31 +199,23 @@
             android:text="Recent History"
             android:textSize="22sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+            app:layout_constraintBottom_toTopOf="@+id/recentHistoryRecyclerView"
             app:layout_constraintEnd_toEndOf="@+id/signUpNextBtn"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.143"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <LinearLayout
-            android:id="@+id/linearLayout2"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recentHistoryRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="120dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
-            android:orientation="horizontal"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recentHistoryRecyclerView"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
+            app:layout_constraintStart_toStartOf="parent" />
 
 
-        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

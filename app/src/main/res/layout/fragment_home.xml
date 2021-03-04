@@ -56,10 +56,11 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:backgroundTint="@color/black"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/slider_shape"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -69,10 +70,60 @@
                     android:id="@+id/slider"
                     android:layout_width="match_parent"
                     android:layout_height="130dp"
-                    android:background="@drawable/slider_shape"
+                    android:orientation="vertical"
                     app:auto_cycle="true"
+                    app:corner_radius="35"
                     app:delay="0"
-                    app:period="1000" />
+                    app:period="2000">
+
+
+                    <TextView
+                        android:id="@+id/textView55"
+                        android:layout_width="wrap_content"
+                        android:layout_height="19dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="16dp"
+                        android:text="Held on Today"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="32dp"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:id="@+id/textView56"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginLeft="16dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginBottom="24dp"
+                        android:text="Blood Donation Campaign 2021"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:id="@+id/eventBy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginBottom="4dp"
+                        android:text="by Admin"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:id="@+id/textView57"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:text="1 min go"
+                        android:textColor="@color/white"
+
+                        />
+                </com.denzcoskun.imageslider.ImageSlider>
+
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -133,7 +184,7 @@
                         android:layout_marginStart="32dp"
                         android:layout_marginTop="2dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/donor"
+                        android:src="@drawable/image_3"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -146,7 +197,7 @@
                         android:layout_marginStart="32dp"
                         android:layout_marginTop="2dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/donor"
+                        android:src="@drawable/image_1"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/imageView5"
                         app:layout_constraintTop_toTopOf="parent"
@@ -159,7 +210,7 @@
                         android:layout_marginStart="32dp"
                         android:layout_marginTop="2dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/donor"
+                        android:src="@drawable/image_2"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/imageView6"
                         app:layout_constraintTop_toTopOf="parent"
@@ -190,7 +241,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="My Lists"
+                        android:text="Donors"
                         app:layout_constraintEnd_toEndOf="@+id/imageView7"
                         app:layout_constraintStart_toStartOf="@+id/imageView7"
                         app:layout_constraintTop_toBottomOf="@+id/imageView7" />
@@ -250,7 +301,7 @@
                         android:layout_marginStart="32dp"
                         android:layout_marginTop="2dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/donor"
+                        android:src="@drawable/ambulance"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -263,7 +314,7 @@
                         android:layout_marginStart="32dp"
                         android:layout_marginTop="2dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/donor"
+                        android:src="@drawable/hospital"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/urgentRequests"
                         app:layout_constraintTop_toTopOf="parent"
@@ -276,7 +327,7 @@
                         android:layout_marginStart="32dp"
                         android:layout_marginTop="2dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/bdrop"
+                        android:src="@drawable/heart"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/myPostedRequested"
                         app:layout_constraintTop_toTopOf="parent"
@@ -375,6 +426,8 @@
                     android:text="Statistics"
                     android:layout_marginTop="4dp"
                     android:layout_marginLeft="4dp"
+                    android:layout_marginStart="24dp"
+
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:textSize="20sp" />
@@ -383,6 +436,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="New Patient"
+                    android:layout_marginStart="24dp"
                     android:layout_marginTop="2dp"
                     android:layout_marginLeft="4dp"
                     android:layout_marginBottom="4dp"
@@ -394,6 +448,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:background="@drawable/profile_round_shape"
+
                 >
 
                 <com.jjoe64.graphview.GraphView
@@ -401,6 +457,7 @@
                     android:layout_height="130dp"
                     android:layout_marginTop="2dp"
                     android:layout_marginLeft="4dp"
+                    android:elevation="2dp"
                     android:layout_marginRight="4dp"
                     android:id="@+id/line_graph"/>
 

@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 
 import com.example.blooddonation.Fragment.HomeFragment;
+import com.example.blooddonation.Fragment.MapsFragment;
 import com.example.blooddonation.Fragment.NotificationsFragment;
 import com.example.blooddonation.Fragment.ProfileFragment;
 import com.example.blooddonation.Fragment.RequestFragment;
@@ -58,7 +59,7 @@ public class HomeActivity extends AppCompatActivity {
                         break;
 
                     case R.id.search:
-                        fragment = new RequestFragment();
+                        fragment = new MapsFragment();
                         break;
                     case R.id.profile:
                         fragment = new ProfileFragment();
