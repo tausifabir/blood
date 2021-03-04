@@ -105,6 +105,8 @@
             android:layout_marginTop="8dp"
             android:ems="10"
             android:hint=""
+            android:drawableEnd="@drawable/dropdown"
+
             android:background="@drawable/login_shape"
             android:paddingLeft="15dp"
             android:inputType="textPassword"
