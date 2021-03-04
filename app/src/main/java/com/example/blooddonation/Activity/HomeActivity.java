@@ -10,6 +10,7 @@ import android.os.Bundle;
 import com.example.blooddonation.Fragment.HomeFragment;
 import com.example.blooddonation.Fragment.NotificationsFragment;
 import com.example.blooddonation.Fragment.ProfileFragment;
+import com.example.blooddonation.Fragment.RequestFragment;
 import com.example.blooddonation.Fragment.SplashFragment_1;
 import com.example.blooddonation.R;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
@@ -54,6 +55,10 @@ public class HomeActivity extends AppCompatActivity {
                         break;
                     case R.id.notifications:
                         fragment = new NotificationsFragment();
+                        break;
+
+                    case R.id.search:
+                        fragment = new RequestFragment();
                         break;
                     case R.id.profile:
                         fragment = new ProfileFragment();
