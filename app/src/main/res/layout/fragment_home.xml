@@ -22,8 +22,8 @@
                 android:id="@+id/textView18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
                 android:text="Campaign"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -36,7 +36,7 @@
                 android:id="@+id/textView19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="2dp"
                 android:text="Available At 3 days"
                 app:layout_constraintEnd_toStartOf="@+id/toggleButton2"
@@ -46,8 +46,8 @@
                 android:id="@+id/toggleButton2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
                 android:thumb="@drawable/toggle_thumb"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -56,7 +56,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:layout_marginTop="8dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp"
@@ -135,7 +134,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1.5"
+        android:layout_weight="1.3"
         android:layout_marginLeft="8dp"
         android:orientation="vertical">
 
@@ -403,7 +402,10 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginRight="36dp"
+        android:background="@drawable/graphviewshape"
+        android:elevation="1dp"
 
         android:orientation="vertical">
 
@@ -412,12 +414,14 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="vertical"
+
             >
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+
                 >
 
                 <TextView
@@ -425,9 +429,7 @@
                     android:layout_height="wrap_content"
                     android:text="Statistics"
                     android:layout_marginTop="4dp"
-                    android:layout_marginLeft="4dp"
-                    android:layout_marginStart="24dp"
-
+                    android:layout_marginLeft="8dp"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:textSize="20sp" />
@@ -436,10 +438,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="New Patient"
-                    android:layout_marginStart="24dp"
                     android:layout_marginTop="2dp"
-                    android:layout_marginLeft="4dp"
                     android:layout_marginBottom="4dp"
+                    android:layout_marginLeft="8dp"
                     />
 
 
@@ -455,10 +456,8 @@
                 <com.jjoe64.graphview.GraphView
                     android:layout_width="match_parent"
                     android:layout_height="130dp"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginLeft="4dp"
-                    android:elevation="2dp"
-                    android:layout_marginRight="4dp"
+
+
                     android:id="@+id/line_graph"/>
 
 
@@ -476,7 +475,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight=".2"
+        android:layout_weight=".3"
         android:orientation="vertical">
 
 

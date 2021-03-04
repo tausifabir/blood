@@ -1,6 +1,9 @@
 package com.example.blooddonation.Fragment;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.DashPathEffect;
+import android.graphics.Paint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -98,14 +101,26 @@ public class HomeFragment extends Fragment {
 
         LineGraphSeries<DataPoint> lineSeries = new LineGraphSeries<>(new DataPoint[] {
                 new DataPoint(0, 1),
-                new DataPoint(1, 5),
-                new DataPoint(5, 10),
-                new DataPoint(10, 17),
-                new DataPoint(15, 10)
+                new DataPoint(2, 3),
+                new DataPoint(3, 10),
+                new DataPoint(4, 6),
+                new DataPoint(6, 17),
+                new DataPoint(7, 10)
         });
         lineGraph.addSeries(lineSeries);
-        lineSeries.setColor(R.color.Theme);
+        //lineSeries.setColor(R.color.Theme);
+
+        lineSeries.setColor(Color.RED);
+        lineSeries.setDrawDataPoints(true);
+        lineSeries.setDataPointsRadius(10);
+        lineSeries.setThickness(8);
         lineSeries.setAnimated(true);
+
+        /*Paint paint = new Paint();
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setStrokeWidth(10);
+        paint.setPathEffect(new DashPathEffect(new float[]{8, 5}, 0));
+        lineSeries.setCustomPaint(paint);*/
 
 
         ArrayList<SlideModel> slideModels = new ArrayList<>();
