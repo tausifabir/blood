@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="How Much Do"
+            android:text="What is"
             android:textSize="32sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:text="Your Weight"
+            android:text="Your Gender"
             android:textSize="32sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/textView5"
@@ -68,6 +68,12 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:elevation="2dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/weight_shape"
 
                 android:orientation="vertical">
 
@@ -110,6 +116,12 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:elevation="2dp"
+                android:background="@drawable/weight_shape"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
                 android:orientation="vertical">
 
 

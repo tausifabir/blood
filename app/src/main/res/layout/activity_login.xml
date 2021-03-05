@@ -45,18 +45,18 @@
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/birthDateBtn"
+            app:layout_constraintStart_toStartOf="@+id/lastBloodDonationDateBtn"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
         <EditText
-            android:id="@+id/birthDateBtn"
+            android:id="@+id/lastBloodDonationDateBtn"
             android:layout_width="220dp"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/login_shape"
             android:ems="10"
-            android:paddingLeft="15dp"
             android:hint="john@gmail.com"
+            android:paddingLeft="15dp"
             android:textAlignment="textStart"
             android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
@@ -75,8 +75,8 @@
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/textInputLayout"
-            app:layout_constraintTop_toBottomOf="@+id/birthDateBtn" />
+            app:layout_constraintStart_toStartOf="@+id/passInputLayout"
+            app:layout_constraintTop_toBottomOf="@+id/lastBloodDonationDateBtn" />
 
         <Button
             android:id="@+id/signUpNextBtn"
@@ -91,7 +91,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.471"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/passInputLayout" />
 
         <TextView
             android:id="@+id/forgotTV"
@@ -127,7 +127,7 @@
             app:layout_constraintTop_toBottomOf="@+id/forgotTV" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout"
+            android:id="@+id/passInputLayout"
             android:layout_width="220dp"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"

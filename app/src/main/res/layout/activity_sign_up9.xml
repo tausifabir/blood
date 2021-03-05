@@ -5,28 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Activity.SignUpActivity2">
+    tools:context=".Activity.SignUpActivity9">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/relativeSpinner"
-            android:layout_width="220dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/login_shape"
-            android:ems="10"
-            android:hint="http/:"
-            android:inputType="textPassword"
-            android:paddingLeft="15dp"
-            android:textAlignment="textStart"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.492"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
         <ImageView
             android:id="@+id/bloodiconimg"
@@ -43,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Contact"
+            android:text="Your Last Blood"
             android:textColor="@color/black"
             android:textSize="32sp"
             android:textStyle="bold"
@@ -58,10 +42,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:text="Information"
+            android:text="Donation Date"
+            android:textColor="@color/black"
             android:textSize="32sp"
             android:textStyle="bold"
-            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="@+id/textView5"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/emailTextView"
@@ -72,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Phone No"
+            android:text="Birth Date"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -81,64 +65,22 @@
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
 
-        <EditText
+        <Button
             android:id="@+id/lastBloodDonationDateBtn"
             android:layout_width="220dp"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/login_shape"
             android:ems="10"
-            android:hint="+880"
-            android:inputType="textPhonetic"
-            android:paddingLeft="15dp"
-            android:textAlignment="textStart"
+            android:hint="Select your last donation date"
+            android:inputType="text"
+            android:onClick="selectLastDonationDate"
+            android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/emailTextView" />
 
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Alternative Phone No"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/bloodGroupSpinner"
-            app:layout_constraintTop_toBottomOf="@+id/lastBloodDonationDateBtn" />
-
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/bloodGroupSpinner"
-            android:layout_width="220dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/login_shape"
-            android:ems="10"
-            android:hint="XXXXXX"
-            android:inputType="textPassword"
-            android:paddingLeft="15dp"
-            android:textAlignment="textStart"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.492"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Social (Optional)"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/bloodGroupSpinner"
-            app:layout_constraintTop_toBottomOf="@+id/bloodGroupSpinner" />
 
         <Button
             android:id="@+id/signUpNextBtn"
@@ -152,26 +94,51 @@
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView17" />
+            app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
         <TextView
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Please Provide Correct Phone no."
+            android:text="Correct birthday will give you best"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/relativeSpinner" />
+            app:layout_constraintTop_toBottomOf="@+id/lastBloodDonationDateBtn" />
 
         <TextView
-            android:id="@+id/textView17"
+            android:id="@+id/textView15"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="This information will keep safe."
+            android:text="experience with the community."
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Don't hide it."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/login_button_shape"
+            android:backgroundTint="#c70100"
+            android:text="Skip"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signUpNextBtn"
+            app:layout_constraintVertical_bias="0.912" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

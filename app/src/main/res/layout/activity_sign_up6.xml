@@ -20,13 +20,28 @@
             android:layout_marginTop="8dp"
             android:background="@drawable/login_shape"
             android:ems="10"
-            android:hint="XXXX"
+            android:hint="Mirpur"
             android:inputType="text"
+            android:paddingLeft="15dp"
             android:textAlignment="textStart"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.492"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/relativeSpinner2"
+            android:layout_width="220dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/login_shape"
+            android:ems="10"
+            android:hint="Mirpur"
+            android:inputType="text"
+            android:paddingLeft="15dp"
+            android:textAlignment="textStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView67" />
 
         <ImageView
             android:id="@+id/bloodiconimg"
@@ -72,17 +87,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Street Address"
+            android:text="District"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/birthDateBtn"
+            app:layout_constraintStart_toStartOf="@+id/lastBloodDonationDateBtn"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
 
         <EditText
-            android:id="@+id/birthDateBtn"
+            android:id="@+id/lastBloodDonationDateBtn"
             android:layout_width="220dp"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
@@ -90,9 +105,9 @@
             android:ems="10"
             android:hint="123/4,Saint Road"
             android:inputType="text"
+            android:paddingLeft="15dp"
             android:textAlignment="textStart"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/emailTextView" />
 
@@ -101,13 +116,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="City"
+            android:text="Union"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/bloodGroupSpinner"
-            app:layout_constraintTop_toBottomOf="@+id/birthDateBtn" />
+            app:layout_constraintTop_toBottomOf="@+id/lastBloodDonationDateBtn" />
 
 
         <com.google.android.material.textfield.TextInputEditText
@@ -119,9 +134,9 @@
             android:ems="10"
             android:hint="Dhaka"
             android:inputType="text"
+            android:paddingLeft="15dp"
             android:textAlignment="textStart"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.492"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
@@ -130,13 +145,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Postal Code"
+            android:text="Post Office"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/bloodGroupSpinner"
             app:layout_constraintTop_toBottomOf="@+id/bloodGroupSpinner" />
+
+        <TextView
+            android:id="@+id/textView67"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Police Station"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/relativeSpinner"
+            app:layout_constraintTop_toBottomOf="@+id/relativeSpinner" />
 
         <Button
             android:id="@+id/signUpNextBtn"
@@ -160,7 +188,7 @@
             android:text="Please Provide Correct Address."
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/relativeSpinner" />
+            app:layout_constraintTop_toBottomOf="@+id/relativeSpinner2" />
 
         <TextView
             android:id="@+id/textView15"

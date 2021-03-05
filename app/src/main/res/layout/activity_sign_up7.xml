@@ -61,12 +61,12 @@
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/birthDateBtn"
+            app:layout_constraintStart_toStartOf="@+id/lastBloodDonationDateBtn"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
 
         <Button
-            android:id="@+id/birthDateBtn"
+            android:id="@+id/lastBloodDonationDateBtn"
             android:layout_width="220dp"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
@@ -105,7 +105,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/birthDateBtn" />
+            app:layout_constraintTop_toBottomOf="@+id/lastBloodDonationDateBtn" />
 
         <TextView
             android:id="@+id/textView15"

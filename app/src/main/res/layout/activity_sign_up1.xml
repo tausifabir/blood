@@ -59,14 +59,14 @@
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/birthDateBtn"
+            app:layout_constraintStart_toStartOf="@+id/lastBloodDonationDateBtn"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
 
 
 
         <EditText
-            android:id="@+id/birthDateBtn"
+            android:id="@+id/lastBloodDonationDateBtn"
             android:layout_width="220dp"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
@@ -74,41 +74,90 @@
             android:ems="10"
             android:hint="john@gmail.com"
             android:inputType="textEmailAddress"
-
-            android:textAlignment="center"
+            android:paddingLeft="15dp"
+            android:textAlignment="textStart"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/emailTextView" />
 
+
         <TextView
-            android:id="@+id/textView7"
+            android:id="@+id/textView65"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:text="Password"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/bloodGroupSpinner"
-            app:layout_constraintTop_toBottomOf="@+id/birthDateBtn" />
+            app:layout_constraintStart_toStartOf="@+id/lastBloodDonationDateBtn"
+            app:layout_constraintTop_toBottomOf="@+id/lastBloodDonationDateBtn" />
 
+        <TextView
+            android:id="@+id/textView66"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Confirm Password"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/passInputLayout"
+            app:layout_constraintTop_toBottomOf="@+id/passInputLayout" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/bloodGroupSpinner"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout"
             android:layout_width="220dp"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/login_shape"
-            android:ems="10"
-            android:hint="XXXXXX"
-            android:inputType="textPassword"
-            android:textAlignment="center"
+            app:hintEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.492"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+            app:layout_constraintTop_toBottomOf="@+id/textView66"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/Theme">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/login_shape"
+                android:ems="15"
+                android:hint="XXXXXX"
+                android:inputType="textPassword"
+                android:paddingLeft="15dp"
+                android:textAlignment="textStart" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passInputLayout"
+            android:layout_width="220dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView65"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/Theme">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/login_shape"
+                android:ems="15"
+                android:hint="XXXXXX"
+                android:inputType="textPassword"
+                android:paddingLeft="15dp"
+                android:textAlignment="textStart" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
 
         <Button
             android:id="@+id/signUpNextBtn"
@@ -128,11 +177,12 @@
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:text="Provide your real name for your"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bloodGroupSpinner" />
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
         <TextView
             android:id="@+id/textView52"

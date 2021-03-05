@@ -23,7 +23,7 @@ public class SignUpActivity7 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up7);
 
-        birthDateBtn = findViewById(R.id.birthDateBtn);
+        birthDateBtn = findViewById(R.id.lastBloodDonationDateBtn);
         signUpNextBtn = findViewById(R.id.signUpNextBtn);
 
         signUpNextBtn.setOnClickListener(new View.OnClickListener() {
@@ -56,9 +56,10 @@ public class SignUpActivity7 extends AppCompatActivity {
             calendar1.set(dayOfMonth,month,year);
 
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/mm/yy");
-            String selecteddate = simpleDateFormat.format(calendar1.getTime());
+            String selectedDate = simpleDateFormat.format(calendar1.getTime());
 
-            birthDateBtn.setText(dayOfMonth+"/"+(month+1)+"/"+year);
+            //birthDateBtn.setText(dayOfMonth+"/"+(month+1)+"/"+year);
+            birthDateBtn.setText(year+"/"+(month+1)+"/"+dayOfMonth);
 
 
         }

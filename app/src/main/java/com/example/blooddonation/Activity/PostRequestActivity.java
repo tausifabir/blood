@@ -39,11 +39,12 @@ public class PostRequestActivity extends AppCompatActivity {
 
 
 
-        ArrayAdapter<String> bloodSpinnerAdapter = new ArrayAdapter(this,android.R.layout.simple_dropdown_item_1line,bloodGroupList);
-        ArrayAdapter<String> relativeSpinnerAdapter = new ArrayAdapter(this,android.R.layout.simple_dropdown_item_1line,relativeList);
+        ArrayAdapter<String> bloodSpinnerAdapter = new ArrayAdapter(this,R.layout.simple_custom_dropdown_item,bloodGroupList);
+        //bloodSpinnerAdapter.setDropDownViewResource(R.layout.simple_custom_dropdown_item);
+        ArrayAdapter<String> relativeSpinnerAdapter = new ArrayAdapter(this,R.layout.simple_custom_dropdown_item,relativeList);
 
-        relativeSpinner.setAdapter(bloodSpinnerAdapter);
-        bloodGroupSpinner.setAdapter(relativeSpinnerAdapter);
+        relativeSpinner.setAdapter(relativeSpinnerAdapter);
+        bloodGroupSpinner.setAdapter(bloodSpinnerAdapter);
 
 
 

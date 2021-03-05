@@ -27,4 +27,7 @@ public class SignUpActivity8 extends AppCompatActivity {
             }
         });
     }
+
+    public void uploadImage(View view) {
+    }
 }

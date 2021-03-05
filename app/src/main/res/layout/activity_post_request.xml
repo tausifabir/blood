@@ -7,6 +7,7 @@
     android:orientation="vertical"
     tools:context=".Activity.PostRequestActivity">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -17,9 +18,11 @@
             android:layout_width="220dp"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/login_shape"
+            android:background="@drawable/spinner_shape"
             android:ems="10"
             android:paddingLeft="15dp"
+            android:paddingEnd="14dp"
+
             android:textAlignment="textStart"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.492"
@@ -62,17 +65,18 @@
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/birthDateBtn"
+            app:layout_constraintStart_toStartOf="@+id/lastBloodDonationDateBtn"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
 
         <EditText
-            android:id="@+id/birthDateBtn"
+            android:id="@+id/lastBloodDonationDateBtn"
             android:layout_width="220dp"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/login_shape"
             android:ems="10"
+            android:focusableInTouchMode="true"
             android:drawableTint="@color/Theme"
             android:drawableEnd="@drawable/ic_baseline_location_on_24"
             android:paddingLeft="15dp"
@@ -95,7 +99,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/bloodGroupSpinner"
-            app:layout_constraintTop_toBottomOf="@+id/birthDateBtn" />
+            app:layout_constraintTop_toBottomOf="@+id/lastBloodDonationDateBtn" />
 
 
         <androidx.appcompat.widget.AppCompatSpinner
@@ -105,12 +109,11 @@
             android:layout_marginTop="8dp"
             android:ems="10"
             android:hint=""
-            android:drawableEnd="@drawable/dropdown"
-
-            android:background="@drawable/login_shape"
+            android:background="@drawable/spinner_shape"
             android:paddingLeft="15dp"
             android:inputType="textPassword"
 
+           android:paddingEnd="14dp"
 
             android:textAlignment="textStart"
             app:layout_constraintEnd_toEndOf="parent"
@@ -220,6 +223,7 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
 </LinearLayout>
