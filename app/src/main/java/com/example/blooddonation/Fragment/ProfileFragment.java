@@ -9,15 +9,22 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.StackView;
 import android.widget.TableLayout;
 
+import com.example.blooddonation.Adapter.CardStackAdapter;
+import com.example.blooddonation.Adapter.MainAdapter;
 import com.example.blooddonation.Adapter.ProfileFragmentAdapter;
 import com.example.blooddonation.R;
+import com.yuyakaido.android.cardstackview.CardStackLayoutManager;
+import com.yuyakaido.android.cardstackview.CardStackView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,6 +34,12 @@ import java.util.ArrayList;
 public class ProfileFragment extends Fragment {
 
 
+
+    private CardStackView cardStackView;
+    private StackView stackView;
+    private CardStackAdapter cardStackAdapter;
+
+    private MainAdapter mainAdapter;
 
     private RecyclerView recyclerView;
     private ProfileFragmentAdapter profileFragmentAdapter;
@@ -83,20 +96,60 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        recyclerView = view.findViewById(R.id.recyclerView);
+        //cardStackView = view.findViewById(R.id.recyclerView);
+        //cardStackView = view.findViewById(R.id.recyclerView);
         fragmentTittle.add("Badges");
         fragmentTittle.add("Donation");
         fragmentTittle.add("Request");
         fragmentTittle.add("Info");
         fragmentTittle.add("Contact");
 
+        //cardStackView = view.findViewById(R.id.cardStackView);
+
+        stackView = view.findViewById(R.id.cardStackView);
         profileFragmentAdapter = new ProfileFragmentAdapter(getContext(),fragmentTittle);
+        cardStackAdapter = new CardStackAdapter(getContext(),fragmentTittle);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setAdapter(profileFragmentAdapter);
-        profileFragmentAdapter.notifyDataSetChanged();
 
+        //recyclerView.setLayoutManager(linearLayoutManager);
+        //recyclerView.setAdapter(profileFragmentAdapter);
+
+
+
+        mainAdapter = new MainAdapter(numberWord(),layoutWord(),getContext(),R.layout.cardstack_row);
+        stackView.setAdapter(mainAdapter);
+
+
+    }
+
+    private List<String> numberWord(){
+
+        ArrayList<String> word = new ArrayList<>();
+
+        word.add("5");
+        word.add("5");
+        word.add("5");
+        word.add("5");
+        word.add("5");
+
+        return word;
+
+    }
+
+
+
+    private List<Integer> layoutWord(){
+
+        ArrayList<Integer> layouts = new ArrayList<>();
+
+        layouts.add(R.layout.activity_badges);
+        layouts.add(R.layout.activity_badges);
+        layouts.add(R.layout.activity_badges);
+
+
+
+        return layouts;
 
     }
 

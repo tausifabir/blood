@@ -3,6 +3,8 @@
     <string name="forgot"><u>Forgot Password?</u></string>
     <string name="Schedule"><u>Schedule</u></string>
 
+    <string name="google_map_api">AIzaSyAumLs5PG1phRmsKPd8iZq1WSS7WRx6HZI</string>
+
 
     <string-array name="BloodGroup">
         <item>A+</item>

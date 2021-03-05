@@ -6,19 +6,22 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.widget.LinearLayout;
 
 import com.example.blooddonation.Fragment.HomeFragment;
 import com.example.blooddonation.Fragment.MapsFragment;
 import com.example.blooddonation.Fragment.NotificationsFragment;
 import com.example.blooddonation.Fragment.ProfileFragment;
-import com.example.blooddonation.Fragment.RequestFragment;
-import com.example.blooddonation.Fragment.SplashFragment_1;
 import com.example.blooddonation.R;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
+
+import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 
     private FragmentManager fragmentManager;
+
+    List<Integer> linearLayoutList;
 
     ChipNavigationBar chipNavigationBar;
     @Override
@@ -37,7 +40,10 @@ public class HomeActivity extends AppCompatActivity {
         fragmentTransaction.commit();
 
 
+
         bottomMenu();
+
+        //linearLayoutList.add(R.layout.fragment_profile);
 
     }
 
