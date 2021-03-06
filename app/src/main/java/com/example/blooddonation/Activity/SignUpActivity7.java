@@ -23,7 +23,7 @@ public class SignUpActivity7 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up7);
 
-        birthDateBtn = findViewById(R.id.lastBloodDonationDateBtn);
+        birthDateBtn = findViewById(R.id.userRegisterEmailET);
         signUpNextBtn = findViewById(R.id.signUpNextBtn);
 
         signUpNextBtn.setOnClickListener(new View.OnClickListener() {

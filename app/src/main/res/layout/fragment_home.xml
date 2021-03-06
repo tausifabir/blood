@@ -177,7 +177,7 @@
 
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/imageView5"
+                        android:id="@+id/bookImage"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginStart="32dp"
@@ -190,7 +190,7 @@
                         app:layout_constraintVertical_bias="0.20999998" />
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/imageView6"
+                        android:id="@+id/donationImage"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginStart="32dp"
@@ -198,7 +198,7 @@
                         android:scaleType="centerCrop"
                         android:src="@drawable/image_1"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/imageView5"
+                        app:layout_constraintStart_toEndOf="@+id/bookImage"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.20999998" />
 
@@ -211,7 +211,7 @@
                         android:scaleType="centerCrop"
                         android:src="@drawable/image_2"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/imageView6"
+                        app:layout_constraintStart_toEndOf="@+id/donationImage"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.20999998" />
 
@@ -221,9 +221,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="Book"
-                        app:layout_constraintEnd_toEndOf="@+id/imageView5"
-                        app:layout_constraintStart_toStartOf="@+id/imageView5"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+                        app:layout_constraintEnd_toEndOf="@+id/bookImage"
+                        app:layout_constraintStart_toStartOf="@+id/bookImage"
+                        app:layout_constraintTop_toBottomOf="@+id/bookImage" />
 
                     <TextView
                         android:id="@+id/textView22"
@@ -231,9 +231,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="Donation"
-                        app:layout_constraintEnd_toEndOf="@+id/imageView6"
-                        app:layout_constraintStart_toStartOf="@+id/imageView6"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+                        app:layout_constraintEnd_toEndOf="@+id/donationImage"
+                        app:layout_constraintStart_toStartOf="@+id/donationImage"
+                        app:layout_constraintTop_toBottomOf="@+id/donationImage" />
 
                     <TextView
                         android:id="@+id/textView23"

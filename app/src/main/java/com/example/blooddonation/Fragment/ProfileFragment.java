@@ -109,6 +109,8 @@ public class ProfileFragment extends Fragment {
         stackView = view.findViewById(R.id.cardStackView);
         profileFragmentAdapter = new ProfileFragmentAdapter(getContext(),fragmentTittle);
         cardStackAdapter = new CardStackAdapter(getContext(),fragmentTittle);
+
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
 
@@ -143,9 +145,12 @@ public class ProfileFragment extends Fragment {
 
         ArrayList<Integer> layouts = new ArrayList<>();
 
-        layouts.add(R.layout.activity_badges);
-        layouts.add(R.layout.activity_badges);
-        layouts.add(R.layout.activity_badges);
+        layouts.add(R.drawable.earth);
+        layouts.add(R.drawable.earth);
+        layouts.add(R.drawable.earth);
+        layouts.add(R.drawable.earth);
+        layouts.add(R.drawable.earth);
+
 
 
 

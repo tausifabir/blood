@@ -38,7 +38,7 @@
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/blood_drop" />
+            app:srcCompat="@drawable/small_logo" />
 
         <TextView
             android:id="@+id/textView5"
@@ -65,12 +65,12 @@
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/lastBloodDonationDateBtn"
+            app:layout_constraintStart_toStartOf="@+id/userRegisterEmailET"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
 
         <EditText
-            android:id="@+id/lastBloodDonationDateBtn"
+            android:id="@+id/userRegisterEmailET"
             android:layout_width="220dp"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
@@ -99,7 +99,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/bloodGroupSpinner"
-            app:layout_constraintTop_toBottomOf="@+id/lastBloodDonationDateBtn" />
+            app:layout_constraintTop_toBottomOf="@+id/userRegisterEmailET" />
 
 
         <androidx.appcompat.widget.AppCompatSpinner

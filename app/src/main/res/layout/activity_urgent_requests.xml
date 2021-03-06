@@ -9,23 +9,47 @@
    >
 
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
 
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Newest First"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/sortedSpinner"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:prompt="@string/app_name"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
 
-
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/urgentRecyclerview"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/urgentRecyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
 
 
     </ScrollView>
-
 
 
 

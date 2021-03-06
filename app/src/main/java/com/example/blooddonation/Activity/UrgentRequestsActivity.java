@@ -21,6 +21,9 @@ public class UrgentRequestsActivity extends AppCompatActivity {
 
     private RecyclerView urgentRecyclerview;
 
+
+    private Spinner sortedSpinner;
+
     private Spinner sortSpinner;
 
 
@@ -31,6 +34,7 @@ public class UrgentRequestsActivity extends AppCompatActivity {
 
 
         urgentRecyclerview = findViewById(R.id.urgentRecyclerview);
+        sortedSpinner = findViewById(R.id.sortedSpinner);
         ArrayList<String> fragmentTittle = new ArrayList<>();
 
         fragmentTittle.add("Badges");
@@ -40,10 +44,24 @@ public class UrgentRequestsActivity extends AppCompatActivity {
         fragmentTittle.add("Contact");
 
 
-        //sortSpinner = findViewById(R.id.sortSpinner);
-        ArrayAdapter<String> relativeSpinnerAdapter = new ArrayAdapter(this,android.R.layout.simple_dropdown_item_1line,fragmentTittle);
 
-       // sortSpinner.setAdapter(relativeSpinnerAdapter);
+
+        ArrayList<String> sortTittle = new ArrayList<>();
+
+        fragmentTittle.add("Time");
+        fragmentTittle.add("Donation");
+        fragmentTittle.add("Request");
+        //sortSpinner = findViewById(R.id.sortSpinner);
+
+
+
+
+
+
+        ArrayAdapter<String> sortedAdapter = new ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,sortTittle);
+
+        sortedSpinner.setAdapter(sortedAdapter);
+
 
         urgentRequestAdapter = new UrgentRequestAdapter(UrgentRequestsActivity.this,fragmentTittle);
 

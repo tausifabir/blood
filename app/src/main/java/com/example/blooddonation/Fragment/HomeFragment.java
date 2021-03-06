@@ -17,6 +17,7 @@ import android.widget.ImageView;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.example.blooddonation.Activity.DonationActivity;
 import com.example.blooddonation.Activity.MyRequestActivity;
 import com.example.blooddonation.Activity.PostRequestActivity;
 import com.example.blooddonation.Activity.UrgentRequestsActivity;
@@ -43,7 +44,7 @@ public class HomeFragment extends Fragment {
 
     private GraphView lineGraph;
 
-    private ImageView urgentRequests,myPostedRequested,postRequest;
+    private ImageView urgentRequests,myPostedRequested,postRequest,bookImage,donationImage;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -96,6 +97,9 @@ public class HomeFragment extends Fragment {
         urgentRequests = view.findViewById(R.id.urgentRequests);
         myPostedRequested = view.findViewById(R.id.myPostedRequested);
         postRequest = view.findViewById(R.id.postRequest);
+        donationImage = view.findViewById(R.id.donationImage);
+        bookImage = view.findViewById(R.id.bookImage);
+
 
         lineGraph = (GraphView) view.findViewById(R.id.line_graph);
 
@@ -149,6 +153,13 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), PostRequestActivity.class));
+            }
+        });
+
+        donationImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), DonationActivity.class));
             }
         });
 
