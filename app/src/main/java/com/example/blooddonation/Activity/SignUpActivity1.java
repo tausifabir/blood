@@ -17,6 +17,10 @@ public class SignUpActivity1 extends AppCompatActivity {
 
     private Button signUpNextBtn;
 
+
+
+    private String userPass,userConPass,userEmail;
+
     private EditText userRegisterPassET,userRegisterEmailET,userRegisterConfirmPassET;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,18 +33,32 @@ public class SignUpActivity1 extends AppCompatActivity {
 
         signUpNextBtn = findViewById(R.id.signUpNextBtn);
 
-        userRegisterEmailET = findViewById(R.id.userRegisterEmailET);
+        userRegisterEmailET = findViewById(R.id.userEmailET);
         userRegisterPassET = findViewById(R.id.userRegisterPassET);
         userRegisterConfirmPassET = findViewById(R.id.userRegisterConfirmPassET);
 
-        String userConPass = userRegisterConfirmPassET.getText().toString();
-        String userPass = userRegisterPassET.getText().toString();
-        String userEmail = userRegisterEmailET.getText().toString();
 
         signUpNextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SignUpActivity1.this,SignUpActivity2.class));
+
+
+
+                userEmail = userRegisterEmailET.getText().toString();
+                userPass = userRegisterPassET.getText().toString();
+                userConPass = userRegisterConfirmPassET.getText().toString();
+
+
+                if(userPass.length()>7 && userConPass.length()>7){
+                    userRegisterPassET.setError("Pass must be 8 character");
+                    userRegisterConfirmPassET.setError("Pass must be 8 character");
+
+                }else{
+                    sharedPreference.saveUserEmail(userEmail,userPass,userConPass);
+                    startActivity(new Intent(SignUpActivity1.this,SignUpActivity2.class));
+                }
+
+
             }
         });
     }

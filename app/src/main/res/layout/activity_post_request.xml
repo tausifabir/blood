@@ -65,12 +65,12 @@
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/userRegisterEmailET"
+            app:layout_constraintStart_toStartOf="@+id/userEmailET"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
 
         <EditText
-            android:id="@+id/userRegisterEmailET"
+            android:id="@+id/userEmailET"
             android:layout_width="220dp"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
@@ -99,7 +99,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/bloodGroupSpinner"
-            app:layout_constraintTop_toBottomOf="@+id/userRegisterEmailET" />
+            app:layout_constraintTop_toBottomOf="@+id/userEmailET" />
 
 
         <androidx.appcompat.widget.AppCompatSpinner

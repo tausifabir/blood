@@ -3,6 +3,7 @@ package com.example.blooddonation.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.hardware.camera2.TotalCaptureResult;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,7 +16,7 @@ import android.widget.Toast;
 import com.example.blooddonation.Network.ApiService;
 import com.example.blooddonation.Network.RetrofitClient;
 import com.example.blooddonation.R;
-import com.google.gson.JsonObject;
+import com.example.blooddonation.SharedPreferencs.SharedPreference;
 
 
 import org.jetbrains.annotations.NotNull;
@@ -29,7 +30,6 @@ import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
-import okhttp3.ResponseBody;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -39,12 +39,17 @@ public class LoginActivity extends AppCompatActivity {
 
 
     public  static final String baseUrl ="http://192.168.1.230:8085/graphql/";
-   // public  static final String baseUrl ="https://graphql-weather-api.herokuapp.com/";
+    //public  static final String baseUrl ="https://graphql-weather-api.herokuapp.com/";
     //public  static final String baseUrl ="https://reqres.in/api/register/";
+
+
+    SharedPreference sharedPreference;
 
     private Button loginBtn;
     private TextView signUp,forgotTV;
     private EditText userEmailET,userPassET;
+
+    private  String  userPass, userEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,11 +60,11 @@ public class LoginActivity extends AppCompatActivity {
         signUp = findViewById(R.id.signupBtn);
         forgotTV = findViewById(R.id.forgotTV);
 
-        userEmailET = findViewById(R.id.userRegisterEmailET);
+        userEmailET = findViewById(R.id.userEmailET);
         userPassET = findViewById(R.id.userPassET);
 
 
-
+        sharedPreference = new SharedPreference(this);
 
 
 
@@ -155,9 +160,6 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-        String userEmail = userEmailET.getText().toString();
-        String userPass = userPassET.getText().toString();
-
 
 
         String query = "mutation {\n" +
@@ -191,7 +193,7 @@ public class LoginActivity extends AppCompatActivity {
                 //.post(formBody)
                 .post(requestBody)
                 .build();
-
+/*
         okHttpClient.newCall(request).enqueue(new okhttp3.Callback() {
             @Override
             public void onFailure(@NotNull okhttp3.Call call, @NotNull IOException e) {
@@ -219,7 +221,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
             }
-        });
+        });*/
 
 
 
@@ -279,94 +281,143 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
+    }
+
+    public void clickLogin(View view) {
+
+        userEmail = userEmailET.getText().toString();
+        userPass = userPassET.getText().toString();
+
+
+        String email =  "\""+userEmail+"\"";
+        String pass =  "\""+userPass+"\"";
 
 
 
+        OkHttpClient okHttpClient = new OkHttpClient();
 
-        loginBtn.setOnClickListener(new View.OnClickListener() {
+
+        String queryTest = "mutation {\n" +
+                "  login(email:"+email+", password: "+pass+", rememberMe: true){\n" +
+                "    status\n" +
+                "    code\n" +
+                "    data\n" +
+                "    errorList{\n" +
+                "      code\n" +
+                "      field\n" +
+                "      message\n" +
+                "      description\n" +
+                "    }\n" +
+                "  }\n" +
+                "}";
+
+
+        String queryTest12 = "mutation {\n" +
+                "  login(email:\"+userEmail+\", password: \"+userPass+\", rememberMe: true){\n" +
+                "    status\n" +
+                "    code\n" +
+                "    data\n" +
+                "    errorList{\n" +
+                "      code\n" +
+                "      field\n" +
+                "      message\n" +
+                "      description\n" +
+                "    }\n" +
+                "  }\n" +
+                "}";
+
+        String queryTest1 = "mutation {\n" +
+                "  login(email:\"abir@gmail.com\", password: \"12345678\", rememberMe: true){\n" +
+                "    status\n" +
+                "    code\n" +
+                "    data\n" +
+                "    errorList{\n" +
+                "      code\n" +
+                "      field\n" +
+                "      message\n" +
+                "      description\n" +
+                "    }\n" +
+                "  }\n" +
+                "}";
+
+
+
+        String query3 = "query {getCityByName(name: \"Barcelona\"){id,name,{id,name,country,coord {lon,lat}}}}";
+        final MediaType MEDIA_TYPE_MARKDOWN = MediaType.parse("application/json; charset=utf-8");
+
+
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("query",queryTest);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        RequestBody requestBody = RequestBody.create(null,jsonObject.toString());
+
+        Request request = new Request.Builder()
+                .url(baseUrl)
+                //.post(formBody)
+                .post(requestBody)
+                .build();
+
+
+
+        okHttpClient.newCall(request).enqueue(new okhttp3.Callback() {
             @Override
-            public void onClick(View v) {
+            public void onFailure(@NotNull okhttp3.Call call, @NotNull IOException e) {
+                Toast.makeText(LoginActivity.this, "OkHTTP:"+e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                Log.e("TAG", "onFailure: "+e.getLocalizedMessage() );
 
 
-                String userEmail = userEmailET.getText().toString();
-                String userPass = userPassET.getText().toString();
+                Log.e("OkHTTP", "onResponse: "+baseUrl );
+            }
 
-                OkHttpClient okHttpClient = new OkHttpClient();
-
-
-                String queryTest = "mutation {\n" +
-                        "  login(email:"+userEmail+", password: "+userPass+", rememberMe: true){\n" +
-                        "    status\n" +
-                        "    code\n" +
-                        "    data\n" +
-                        "    errorList{\n" +
-                        "      code\n" +
-                        "      field\n" +
-                        "      message\n" +
-                        "      description\n" +
-                        "    }\n" +
-                        "  }\n" +
-                        "}";
+            @Override
+            public void onResponse(@NotNull okhttp3.Call call, @NotNull okhttp3.Response response) throws IOException {
 
 
-                final MediaType MEDIA_TYPE_MARKDOWN = MediaType.parse("application/json; charset=utf-8");
+
+                if(response.isSuccessful()){
+
+                    try {
+                        String res = response.body().string();
+                        JSONObject json = new JSONObject(res);
+
+                        Log.e("CatchResponse: ", "onResponse: "+res );
+
+                        Log.e("OkHTTPSuccess", "onResponse: "+baseUrl );
+
+                        String code = json.getJSONObject("data").getJSONObject("login").getString("code");
+
+                        int codeRequest = Integer.parseInt(code);
 
 
-                JSONObject jsonObject = new JSONObject();
-                try {
-                    jsonObject.put("query",query);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                RequestBody requestBody = RequestBody.create(null,jsonObject.toString());
-
-                Request request = new Request.Builder()
-                        .url(baseUrl)
-                        //.post(formBody)
-                        .post(requestBody)
-                        .build();
-
-                okHttpClient.newCall(request).enqueue(new okhttp3.Callback() {
-                    @Override
-                    public void onFailure(@NotNull okhttp3.Call call, @NotNull IOException e) {
-                        Toast.makeText(LoginActivity.this, "OkHTTP:"+e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-                        Log.e("TAG", "onFailure: "+e.getLocalizedMessage() );
+                        if(codeRequest == 200){
 
 
-                        Log.e("OkHTTP", "onResponse: "+baseUrl );
-                    }
 
-                    @Override
-                    public void onResponse(@NotNull okhttp3.Call call, @NotNull okhttp3.Response response) throws IOException {
-
-                        if(response.isSuccessful()){
-
-                            ResponseBody jsonObject1 = response.body();
-
-
-                            JsonObject object = new JsonObject();
-
+                            //String token = json.getJSONObject("login").getString("data");
+                            //sharedPreference.saveToken(token);
                             startActivity(new Intent(LoginActivity.this,HomeActivity.class));
 
 
-                            Log.e("OkHTTPSuccess", "onResponse: "+response.code() );
-
-                            String res = response.body().string();
-                            object.get(res);
+                        }else{
 
 
-                            Log.e("CatchResponse: ", "onResponse: "+res );
-                            Log.e("OkHTTPSuccess", "onResponse: "+baseUrl );
-
+                            Toast.makeText(LoginActivity.this, ""+json.getJSONArray("login").getJSONArray(0).getJSONObject(4), Toast.LENGTH_SHORT).show();
 
                         }
 
 
-
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        Log.e("TAG", "onResponse: "+e );
                     }
-                });
 
+                }
             }
         });
+
     }
+
 }

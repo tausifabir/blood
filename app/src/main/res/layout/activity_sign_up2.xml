@@ -13,7 +13,7 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/relativeSpinner"
+            android:id="@+id/userSocialET"
             android:layout_width="220dp"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
@@ -77,12 +77,12 @@
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/userRegisterEmailET"
+            app:layout_constraintStart_toStartOf="@+id/userPhoneET"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
 
         <EditText
-            android:id="@+id/userRegisterEmailET"
+            android:id="@+id/userPhoneET"
             android:layout_width="220dp"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
@@ -107,12 +107,12 @@
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/bloodGroupSpinner"
-            app:layout_constraintTop_toBottomOf="@+id/userRegisterEmailET" />
+            app:layout_constraintStart_toStartOf="@+id/userAlPhoneET"
+            app:layout_constraintTop_toBottomOf="@+id/userPhoneET" />
 
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/bloodGroupSpinner"
+            android:id="@+id/userAlPhoneET"
             android:layout_width="220dp"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
@@ -137,8 +137,8 @@
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/bloodGroupSpinner"
-            app:layout_constraintTop_toBottomOf="@+id/bloodGroupSpinner" />
+            app:layout_constraintStart_toStartOf="@+id/userAlPhoneET"
+            app:layout_constraintTop_toBottomOf="@+id/userAlPhoneET" />
 
         <Button
             android:id="@+id/signUpNextBtn"
@@ -162,7 +162,7 @@
             android:text="Please Provide Correct Phone no."
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/relativeSpinner" />
+            app:layout_constraintTop_toBottomOf="@+id/userSocialET" />
 
         <TextView
             android:id="@+id/textView17"

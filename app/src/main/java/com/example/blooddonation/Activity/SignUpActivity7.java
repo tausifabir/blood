@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 
 import com.example.blooddonation.R;
+import com.example.blooddonation.SharedPreferencs.SharedPreference;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -18,17 +19,26 @@ public class SignUpActivity7 extends AppCompatActivity {
 
     private Button birthDateBtn,signUpNextBtn;
 
+    private String dateOfBirth;
+
+    private SharedPreference sharedPreference;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up7);
 
-        birthDateBtn = findViewById(R.id.userRegisterEmailET);
+        birthDateBtn = findViewById(R.id.userEmailET);
         signUpNextBtn = findViewById(R.id.signUpNextBtn);
 
+        sharedPreference = new SharedPreference(SignUpActivity7.this);
         signUpNextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                dateOfBirth = birthDateBtn.getText().toString();
+               sharedPreference.saveBirthDate(dateOfBirth);
                 startActivity(new Intent(SignUpActivity7.this,SignUpActivity8.class));
             }
         });

@@ -56,17 +56,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Birth Date"
+            android:text="Blood Donation Date"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/userRegisterEmailET"
+            app:layout_constraintStart_toStartOf="@+id/bloodDonationBtn"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
 
         <Button
-            android:id="@+id/userRegisterEmailET"
+            android:id="@+id/bloodDonationBtn"
             android:layout_width="220dp"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
@@ -105,7 +105,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/userRegisterEmailET" />
+            app:layout_constraintTop_toBottomOf="@+id/bloodDonationBtn" />
 
         <TextView
             android:id="@+id/textView15"

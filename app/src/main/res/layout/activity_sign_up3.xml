@@ -105,7 +105,7 @@
                     android:src="@drawable/blood_drop">
 
                     <LinearLayout
-                        android:id="@+id/aMinus"
+                        android:id="@+id/aNegative"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:background="@drawable/round_shape"
@@ -114,7 +114,7 @@
                         android:src="@drawable/blood_drop">
 
                         <TextView
-                            android:id="@+id/bloodAMinus"
+                            android:id="@+id/bloodANegative"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
@@ -143,7 +143,7 @@
                         android:src="@drawable/blood_drop">
 
                         <TextView
-                            android:id="@+id/bloodANegative"
+                            android:id="@+id/bloodBPositive"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
@@ -337,7 +337,7 @@
                         android:visibility="gone">
 
                         <TextView
-                            android:id="@+id/bloodBPositive"
+                            android:id="@+id/bloodPositive"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
