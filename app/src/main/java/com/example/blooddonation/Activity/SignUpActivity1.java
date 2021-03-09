@@ -49,10 +49,14 @@ public class SignUpActivity1 extends AppCompatActivity {
                 userConPass = userRegisterConfirmPassET.getText().toString();
 
 
-                if(userPass.length()>7 && userConPass.length()>7){
+                if(userPass.isEmpty() || userConPass.isEmpty()|| userEmail.isEmpty()){
+                    userRegisterEmailET.setError("Field must not be empty");
+                    userRegisterPassET.setError("Field must not be empty");
+                    userRegisterConfirmPassET.setError("Field must not be empty");
+
+                }else if(userPass.length()< 7 || userConPass.length()<7){
                     userRegisterPassET.setError("Pass must be 8 character");
                     userRegisterConfirmPassET.setError("Pass must be 8 character");
-
                 }else{
                     sharedPreference.saveUserEmail(userEmail,userPass,userConPass);
                     startActivity(new Intent(SignUpActivity1.this,SignUpActivity2.class));

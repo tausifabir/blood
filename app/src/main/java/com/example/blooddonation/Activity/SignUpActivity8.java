@@ -50,7 +50,7 @@ public class SignUpActivity8 extends AppCompatActivity {
             public void onClick(View v) {
 
                 sharedPreference.saveImage("image");
-                startActivity(new Intent(SignUpActivity8.this,HomeActivity.class));
+
 
                 String email =  "\""+sharedPreference.getUserDetails().get(sharedPreference.KEY_USER_EMAIL)+"\"";
                 String pass =  "\""+sharedPreference.getUserDetails().get(sharedPreference.KEY_USER_PASSWORD)+"\"";
@@ -62,7 +62,9 @@ public class SignUpActivity8 extends AppCompatActivity {
                 String district =  "\""+sharedPreference.getUserDetails().get(sharedPreference.KEY_USER_DISTRICT)+"\"";
                 String union =  "\""+sharedPreference.getUserDetails().get(sharedPreference.KEY_USER_UNION)+"\"";
                 String postoffice =  "\""+sharedPreference.getUserDetails().get(sharedPreference.KEY_USER_POSTOFFICE)+"\"";
+                String police =  "\""+sharedPreference.getUserDetails().get(sharedPreference.KEY_USER_POLICE)+"\"";
                 String dateofbirth =  "\""+sharedPreference.getUserDetails().get(sharedPreference.KEY_DATEBIRTH)+"\"";
+                String donationDate =  "\""+sharedPreference.getUserDetails().get(sharedPreference.KEY_DONATIONBLOOD)+"\"";
 
 
                 String queryRegistration = "mutation {\n" +
@@ -73,7 +75,7 @@ public class SignUpActivity8 extends AppCompatActivity {
                         "    mobileNumber: \"01521231706\"\n" +
                         "    alternateMobileNumber: \"01879205152\"\n" +
                         "    socialLink: \"fb\"\n" +
-                        "    bloodGroup: \"O+\"\n" +
+                        "    bloodGroup: \"O_positive\"\n" +
                         "    weight: 108\n" +
                         "    gender: \"male\"\n" +
                         "    religion: \"islam\"\n" +
@@ -106,22 +108,22 @@ public class SignUpActivity8 extends AppCompatActivity {
 
                 String queryRegistration2 = "mutation {\n" +
                         "  registerUser(input: {\n" +
-                        "    name:"+email+"\n" +
-                        "    email: \"abir@gmail.com\"\n" +
-                        "    password: \"12345678\"\n" +
-                        "    mobileNumber: \"01521231706\"\n" +
-                        "    alternateMobileNumber: \"01879205152\"\n" +
+                        "    name:\"Kader\"\n" +
+                        "    email: "+email+"\n" +
+                        "    password: "+pass+"\n" +
+                        "    mobileNumber: "+mobile+"\n" +
+                        "    alternateMobileNumber: "+altmobile+"\n" +
                         "    socialLink: \"fb\"\n" +
-                        "    bloodGroup: \"O+\"\n" +
-                        "    weight: 108\n" +
-                        "    gender: \"male\"\n" +
+                        "    bloodGroup: "+blood+"\n" +
+                        "    weight: "+sharedPreference.getWeight()+"\n"+
+                        "    gender: "+gender+"\n" +
                         "    religion: \"islam\"\n" +
-                        "    district: \"comilla\"\n" +
-                        "    unionName: \"baksimul\"\n" +
-                        "    postOffice: \"kalikapur\"\n" +
-                        "    policeStation: \"burichong\"\n" +
-                        "    dateOfBirth: \"1997-04-05\"\n" +
-                        "    lastBloodDonationDate: \"2020-01-03\"\n" +
+                        "    district: "+district+"\n" +
+                        "    unionName: "+union+"\n" +
+                        "    postOffice: "+postoffice+"\n" +
+                        "    policeStation: "+police+"\n" +
+                        "    dateOfBirth: "+dateofbirth+"\n" +
+                        "    lastBloodDonationDate: "+donationDate+"\n" +
                         "    imageLink: \"sfsdf\"\n" +
                         "    longitude: 44.33\n" +
                         "    latitude: 33.33\n" +
@@ -149,7 +151,7 @@ public class SignUpActivity8 extends AppCompatActivity {
 
                 JSONObject jsonObject = new JSONObject();
                 try {
-                    jsonObject.put("query",queryRegistration);
+                    jsonObject.put("query",queryRegistration2);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -179,33 +181,57 @@ public class SignUpActivity8 extends AppCompatActivity {
                         if(response.isSuccessful()){
 
 
-                            String res = response.body().string();
-                            JSONObject json = null;
                             try {
-                                json = new JSONObject(res);
+                                String res = response.body().string();
+                                JSONObject json = new JSONObject(res);
+
+                                String code = json.getJSONObject("data").getJSONObject("registerUser").getString("code");
+
+                                int codeRequest = Integer.parseInt(code);
+
+
+                                Log.e("Initial Query", "onResponse: "+queryRegistration2);
+                                if(codeRequest == 200){
+
+
+
+                                    //String token = json.getJSONObject("login").getString("data");
+                                    //sharedPreference.saveToken(token);
+                                    startActivity(new Intent(SignUpActivity8.this,HomeActivity.class));
+                                    Log.e("Success Query", "onResponse: "+queryRegistration2);
+                                    Log.e("Success Response", "onResponse: "+res );
+                                    String userID = json.getJSONObject("data").getJSONObject("registerUser").getJSONObject("user").getString("id");
+
+
+                                    sharedPreference.saveUserID(userID);
+
+
+                                }else{
+
+
+                                    Log.e("Failed Query", "onResponse: "+queryRegistration2);
+                                    Log.e("Failed Response", "onResponse: "+res );
+
+                                    Log.e("response Failed", "onResponse: "+json.getJSONObject("data").
+                                            getJSONObject("registerUser").getJSONArray("errorList")
+                                            .getJSONObject(3).getString("description") );
+
+
+                                    Toast.makeText(SignUpActivity8.this, ""+json.getJSONObject("data").
+                                            getJSONObject("registerUser").getJSONArray("errorList")
+                                            .getJSONObject(3).getString("description"), Toast.LENGTH_SHORT).show();
+
+
+                                }
+
                             } catch (JSONException e) {
                                 e.printStackTrace();
+                                Log.e("Exception Query", "onResponse: "+queryRegistration2);
                             }
 
-
-
-
-                            ResponseBody body = response.body();
-
-                            startActivity(new Intent(SignUpActivity8.this,HomeActivity.class));
-
-                            JsonObject object = new JsonObject();
-
-
-                            Log.e("OkHTTPSuccess", "onResponse: "+response.code() );
-
-                            //String res = response.body().toString();
-
-
-
-                            Log.e("CatchResponse: ", "onResponse: "+res );
-                            Log.e("OkHTTPSuccess", "onResponse: "+baseUrl );
-
+                        }else{
+                            Log.e("Failed Response Query", "onResponse: "+queryRegistration2);
+                            Log.e("TAG", "onResponse: Not Success");
 
                         }
 
@@ -217,6 +243,9 @@ public class SignUpActivity8 extends AppCompatActivity {
         });
     }
 
+
+
     public void uploadImage(View view) {
+
     }
 }

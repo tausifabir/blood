@@ -14,6 +14,7 @@ import com.example.blooddonation.SharedPreferencs.SharedPreference;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class SignUpActivity7 extends AppCompatActivity {
 
@@ -39,7 +40,7 @@ public class SignUpActivity7 extends AppCompatActivity {
 
                 dateOfBirth = birthDateBtn.getText().toString();
                sharedPreference.saveBirthDate(dateOfBirth);
-                startActivity(new Intent(SignUpActivity7.this,SignUpActivity8.class));
+                startActivity(new Intent(SignUpActivity7.this,SignUpActivity9.class));
             }
         });
     }
@@ -65,11 +66,14 @@ public class SignUpActivity7 extends AppCompatActivity {
             final  Calendar calendar1 = Calendar.getInstance();
             calendar1.set(dayOfMonth,month,year);
 
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/mm/yy");
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
             String selectedDate = simpleDateFormat.format(calendar1.getTime());
 
+
+            String date = simpleDateFormat.format(new Date());
             //birthDateBtn.setText(dayOfMonth+"/"+(month+1)+"/"+year);
-            birthDateBtn.setText(year+"/"+(month+1)+"/"+dayOfMonth);
+            //birthDateBtn.setText(year+"/"+(month+1)+"/"+dayOfMonth);
+            birthDateBtn.setText(date);
 
 
         }

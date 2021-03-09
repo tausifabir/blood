@@ -64,7 +64,7 @@ public class SignUpActivity3 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                bloodGroup = "A+";
+                bloodGroup = "a_positive";
 
                 sharedPreference.saveBlood(bloodGroup);
 
@@ -104,7 +104,7 @@ public class SignUpActivity3 extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                bloodGroup = "B+";
+                bloodGroup = "b_positive";
                 sharedPreference.saveBlood(bloodGroup);
 
                 bPositive.setBackground(getDrawable(R.drawable.selected_round_shape));
@@ -138,7 +138,7 @@ public class SignUpActivity3 extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                bloodGroup = "O+";
+                bloodGroup = "o_positive";
                 sharedPreference.saveBlood(bloodGroup);
                 oPositive.setBackground(getDrawable(R.drawable.selected_round_shape));
                 bloodOPositive.setTextColor(getColor(R.color.white));
@@ -170,7 +170,7 @@ public class SignUpActivity3 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                bloodGroup = "AB+";
+                bloodGroup = "ab_positive";
                 sharedPreference.saveBlood(bloodGroup);
 
                 abPositive.setBackground(getDrawable(R.drawable.selected_round_shape));
@@ -205,7 +205,7 @@ public class SignUpActivity3 extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                bloodGroup = "B-";
+                bloodGroup = "b_negative";
                 sharedPreference.saveBlood(bloodGroup);
                 bNegative.setBackground(getDrawable(R.drawable.selected_round_shape));
                 bloodBNegative.setTextColor(getColor(R.color.white));
@@ -240,7 +240,7 @@ public class SignUpActivity3 extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                bloodGroup = "A-";
+                bloodGroup = "a_negative";
                 sharedPreference.saveBlood(bloodGroup);
 
                 aNegative.setBackground(getDrawable(R.drawable.selected_round_shape));
@@ -272,7 +272,7 @@ public class SignUpActivity3 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                bloodGroup = "O-";
+                bloodGroup = "o_negative";
                 sharedPreference.saveBlood(bloodGroup);
 
                 oNegative.setBackground(getDrawable(R.drawable.selected_round_shape));
@@ -306,7 +306,7 @@ public class SignUpActivity3 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                bloodGroup = "AB-";
+                bloodGroup = "ab_negative";
                 sharedPreference.saveBlood(bloodGroup);
 
                 abNegative.setBackground(getDrawable(R.drawable.selected_round_shape));

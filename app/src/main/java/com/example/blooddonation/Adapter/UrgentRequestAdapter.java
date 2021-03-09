@@ -10,6 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.blooddonation.R;
+import com.google.gson.JsonArray;
+
+import org.json.JSONArray;
 
 import java.util.ArrayList;
 
@@ -19,11 +22,12 @@ public class UrgentRequestAdapter extends RecyclerView.Adapter<UrgentRequestAdap
 
     private Context context;
 
-    private ArrayList<String> fragmentTittle;
 
-    public UrgentRequestAdapter(Context context, ArrayList<String> fragmentTittle) {
+    private  ArrayList<String> itemNames;
+
+    public UrgentRequestAdapter(Context context, ArrayList<String> itemNames) {
         this.context = context;
-        this.fragmentTittle = fragmentTittle;
+        this.itemNames = itemNames;
 
     }
 
@@ -45,11 +49,12 @@ public class UrgentRequestAdapter extends RecyclerView.Adapter<UrgentRequestAdap
 
 
 
+
     }
 
     @Override
     public int getItemCount() {
-        return fragmentTittle.size();
+        return itemNames.size();
     }
 
     public class UrgentViewHolder extends RecyclerView.ViewHolder{

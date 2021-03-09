@@ -21,7 +21,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/splash1" />
+            android:src="@drawable/splash2" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/linearLayout4"
@@ -58,7 +58,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="32dp"
-                android:src="@drawable/blood_drop"
+                android:src="@drawable/blue_drop"
                 app:layout_constraintBottom_toBottomOf="@+id/textView"
                 app:layout_constraintStart_toEndOf="@+id/textView"
                 app:layout_constraintTop_toTopOf="@+id/textView"

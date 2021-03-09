@@ -50,6 +50,18 @@ public class SharedPreference {
     }
 
 
+    public void saveUserEmailLogin(String email){
+        editor.putString(KEY_USER_EMAIL,email);
+        editor.commit();
+
+    }
+
+    public String getUserEmailLogin(){
+
+        return sharedPreferences.getString(KEY_USER_EMAIL,null);
+
+    }
+
 
 
 
@@ -127,6 +139,11 @@ public class SharedPreference {
         editor.commit();
     }
 
+    public String getToken(String token){
+
+        return sharedPreferences.getString(KEY_TOKEN,null);
+    }
+
     public String getToken(){
         return sharedPreferences.getString(KEY_TOKEN,null);
     }
@@ -148,6 +165,14 @@ public class SharedPreference {
         editor.commit();
     }
 
+
+
+    public void saveDonationDate(String dateOfBirth){
+
+
+        editor.putString(KEY_DONATIONBLOOD,dateOfBirth);
+        editor.commit();
+    }
 
     public void saveImage(String image){
 
@@ -186,5 +211,15 @@ public class SharedPreference {
 
     public boolean getSplashStatus(){
         return sharedPreferences.getBoolean("status",false);
+    }
+
+    public void saveUserID(String userID) {
+        editor.putString(KEY_USER_ID,userID);
+        editor.commit();
+    }
+
+    public String getUserID(String userID) {
+
+        return sharedPreferences.getString(KEY_USER_ID, null);
     }
 }

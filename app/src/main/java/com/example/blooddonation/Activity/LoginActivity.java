@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.hardware.camera2.TotalCaptureResult;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -361,62 +364,95 @@ public class LoginActivity extends AppCompatActivity {
                 .build();
 
 
+        if(userEmail.isEmpty() || userPass.isEmpty()){
 
-        okHttpClient.newCall(request).enqueue(new okhttp3.Callback() {
-            @Override
-            public void onFailure(@NotNull okhttp3.Call call, @NotNull IOException e) {
-                Toast.makeText(LoginActivity.this, "OkHTTP:"+e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-                Log.e("TAG", "onFailure: "+e.getLocalizedMessage() );
+            userEmailET.setError("Field must not be empty");
+            userPassET.setError("Field must not be empty");
 
-
-                Log.e("OkHTTP", "onResponse: "+baseUrl );
-            }
-
-            @Override
-            public void onResponse(@NotNull okhttp3.Call call, @NotNull okhttp3.Response response) throws IOException {
+        }else{
 
 
-
-                if(response.isSuccessful()){
-
-                    try {
-                        String res = response.body().string();
-                        JSONObject json = new JSONObject(res);
-
-                        Log.e("CatchResponse: ", "onResponse: "+res );
-
-                        Log.e("OkHTTPSuccess", "onResponse: "+baseUrl );
-
-                        String code = json.getJSONObject("data").getJSONObject("login").getString("code");
-
-                        int codeRequest = Integer.parseInt(code);
+            okHttpClient.newCall(request).enqueue(new okhttp3.Callback() {
+                @Override
+                public void onFailure(@NotNull okhttp3.Call call, @NotNull IOException e) {
 
 
-                        if(codeRequest == 200){
+                    LoginActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(LoginActivity.this, ""+e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+                    Log.e("TAG", "onFailure: "+e.getLocalizedMessage() );
+
+
+                    Log.e("OkHTTP", "onResponse: "+baseUrl );
+                }
+
+                @Override
+                public void onResponse(@NotNull okhttp3.Call call, @NotNull okhttp3.Response response) throws IOException {
 
 
 
-                            //String token = json.getJSONObject("login").getString("data");
-                            //sharedPreference.saveToken(token);
-                            startActivity(new Intent(LoginActivity.this,HomeActivity.class));
+                    if(response.isSuccessful()){
+
+                        try {
+                            String res = response.body().string();
+                            JSONObject json = new JSONObject(res);
+
+                            Log.e("CatchResponse: ", "onResponse: "+res );
+
+                            Log.e("OkHTTPSuccess", "onResponse: "+baseUrl );
+
+                            String code = json.getJSONObject("data").getJSONObject("login").getString("code");
+
+                            int codeRequest = Integer.parseInt(code);
 
 
-                        }else{
+                            if(codeRequest == 200){
 
 
-                            Toast.makeText(LoginActivity.this, ""+json.getJSONArray("login").getJSONArray(0).getJSONObject(4), Toast.LENGTH_SHORT).show();
 
+                                sharedPreference.saveUserEmailLogin(userEmail);
+
+                                String token = json.getJSONObject("data").getJSONObject("login").getString("data");
+                                sharedPreference.saveToken(token);
+                                Log.e("TOKEN", "onResponse: "+token );
+                                startActivity(new Intent(LoginActivity.this,HomeActivity.class));
+
+
+
+                            }else{
+
+                                LoginActivity.this.runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        try {
+                                            Toast.makeText(LoginActivity.this, ""+json.getJSONObject("data").getString("login"), Toast.LENGTH_SHORT).show();
+
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
+
+                                    }
+                                });
+
+                            }
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Log.e("TAG", "onResponse: "+e );
                         }
 
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                        Log.e("TAG", "onResponse: "+e );
                     }
-
                 }
-            }
-        });
+            });
+
+
+        }
+
 
     }
 
