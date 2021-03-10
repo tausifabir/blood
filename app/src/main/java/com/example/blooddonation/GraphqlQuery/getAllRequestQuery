@@ -1,0 +1,37 @@
+
+query {
+  getAllBloodRequestInformation{
+    status
+    code
+
+    bloodRequestInformationSet{
+      id
+      bloodRequest{
+        id
+        location{
+          district
+          unionName
+          postOffice
+          policeStation
+        }
+        alternateMobileNumber
+        requestedBloodGroup
+        timeFrame
+      }
+      bloodRequester{
+        id
+        name
+        email
+        bloodGroup
+        alternateMobileNumber
+
+      }
+    }
+    errorList{
+      code
+      field
+      message
+      description
+    }
+  }
+}

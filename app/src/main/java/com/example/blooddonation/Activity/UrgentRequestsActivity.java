@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.text.format.DateUtils;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -23,7 +24,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.TimeZone;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -78,13 +81,13 @@ public class UrgentRequestsActivity extends AppCompatActivity {
 
 
 
-        urgentRequestAdapter = new UrgentRequestAdapter(UrgentRequestsActivity.this,fragmentTittle);
+     /*   urgentRequestAdapter = new UrgentRequestAdapter(UrgentRequestsActivity.this,fragmentTittle);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(UrgentRequestsActivity.this);
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
         urgentRecyclerview.setLayoutManager(linearLayoutManager);
         urgentRecyclerview.setAdapter(urgentRequestAdapter);
-        urgentRequestAdapter.notifyDataSetChanged();
+        urgentRequestAdapter.notifyDataSetChanged();*/
 
 
         ArrayAdapter<String> sortedAdapter = new ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,sortTittle);
@@ -96,20 +99,47 @@ public class UrgentRequestsActivity extends AppCompatActivity {
 
     }
 
-    private void getApi() {
 
+    public String calculateTimeAgo(String dateTime){
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
+
+
+        try{
+            long time = format.parse(dateTime).getTime();
+            long now = System.currentTimeMillis();
+            CharSequence ago = DateUtils.getRelativeTimeSpanString(time,now,DateUtils.DAY_IN_MILLIS);
+
+            return ago+"";
+        }catch (Exception e){
+
+            e.printStackTrace();
+        }
+
+        return "";
+    }
+
+    private void getApi() {
 
         String getAllRequestQuery = "\n" +
                 "query {\n" +
                 "  getAllBloodRequestInformation{\n" +
                 "    status\n" +
                 "    code\n" +
+                "   \n" +
+                "    \n" +
+                "  \n" +
                 "    bloodRequestInformationSet{\n" +
                 "      id\n" +
-                "      bloodRequester{\n" +
-                "        id\n" +
-                "        name\n" +
+                "      bloodRequest{\n" +
+                "        \n" +
+                "        location{\n" +
+                "          district\n" +
+                "        }\n" +
+                "        requestedBloodGroup\n" +
+                "        relationShipWithPatient\n" +
+                "        timeFrame\n" +
                 "      }\n" +
+                "     \n" +
                 "    }\n" +
                 "    errorList{\n" +
                 "      code\n" +
@@ -146,7 +176,6 @@ public class UrgentRequestsActivity extends AppCompatActivity {
 
                 Log.e("TAG", "onFailure: "+e.getLocalizedMessage() );
 
-
                 Log.e("OkHTTP", "onResponse: "+baseUrl );
             }
 
@@ -156,54 +185,34 @@ public class UrgentRequestsActivity extends AppCompatActivity {
                 String res = response.body().string();
                 if(response.isSuccessful()){
 
-
                     try {
-
                         JSONObject json = new JSONObject(res);
-
                         String code = json.getJSONObject("data").getJSONObject("getAllBloodRequestInformation").getString("code");
-
                         int codeRequest = Integer.parseInt(code);
-
-
 
                         if(codeRequest == 200){
 
-
-
+                            JSONArray jsonArray = json.getJSONObject("data").getJSONObject("getAllBloodRequestInformation").getJSONArray("bloodRequestInformationSet");
                             Log.e("ResponseTAG", "onResponse: "+res );
                             UrgentRequestsActivity.this.runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    Toast.makeText(UrgentRequestsActivity.this, "Request has posted successfully", Toast.LENGTH_SHORT).show();
+                                    urgentRequestAdapter = new UrgentRequestAdapter(UrgentRequestsActivity.this,jsonArray);
+                                    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(UrgentRequestsActivity.this);
+                                    linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
+                                    urgentRecyclerview.setLayoutManager(linearLayoutManager);
+                                    urgentRecyclerview.setAdapter(urgentRequestAdapter);
+                                    urgentRequestAdapter.notifyDataSetChanged();
                                 }
                             });
 
-                            //String token = json.getJSONObject("login").getString("data");
-                            //sharedPreference.saveToken(token);
-
-
-                            JSONArray jsonArray = json.getJSONObject("data").getJSONObject("getAllBloodRequestInformation").getJSONArray("bloodRequestInformationSet");
-                            Log.e("Success Response", "onResponse: "+res );
-
-
-
-
                             for(int i = 0;i<= jsonArray.length();i++ ){
-
-                                JSONObject animal = jsonArray.getJSONObject(i);
-
-                                int id = animal.getInt("id");
-                                String name = animal.getString("name");
-
-                                Log.e("Id", "onResponse: "+id );
-                                Log.e("Name", "onResponse: "+name );
-
-
+                                JSONObject bloodRequest = jsonArray.getJSONObject(i);
+                                String bloodGroup = bloodRequest.getJSONObject("bloodRequest").getString("requestedBloodGroup");
+                                Log.e("Id", "onResponse: "+bloodGroup );
                             }
 
                         }else{
-
 
                             UrgentRequestsActivity.this.runOnUiThread(new Runnable() {
                                 @Override
@@ -212,36 +221,18 @@ public class UrgentRequestsActivity extends AppCompatActivity {
                                 }
                             });
 
-                            Log.e("Failed Query", "onResponse: "+getAllRequestQuery);
-                            Log.e("Failed Response", "onResponse: "+res );
-
-                            Log.e("response Failed", "onResponse: "+json.getJSONObject("data").
-                                    getJSONObject("registerUser").getJSONArray("errorList")
-                                    .getJSONObject(3).getString("description") );
-
-
-                            Toast.makeText(UrgentRequestsActivity.this, ""+json.getJSONObject("data").
-                                    getJSONObject("registerUser").getJSONArray("errorList")
-                                    .getJSONObject(3).getString("description"), Toast.LENGTH_SHORT).show();
-
-
                         }
 
                     } catch (JSONException e) {
                         e.printStackTrace();
-                        Log.e("Exception Query", "onResponse: "+getAllRequestQuery);
-                        Log.e("TAG", "onResponse: "+baseUrl );
                         Log.e("Exception", "onResponse: "+e.getLocalizedMessage() );
-                        Log.e("ResponseTAG", "onResponse: "+res );
                     }
 
                 }else{
-                    Log.e("Failed Response Query", "onResponse: "+getAllRequestQuery);
-                    Log.e("TAG", "onResponse: Not Success");
+
+                    Log.e("Response Failed", "onResponse: "+res);
 
                 }
-
-
 
             }
         });
