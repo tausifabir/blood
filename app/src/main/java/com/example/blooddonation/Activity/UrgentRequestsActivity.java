@@ -11,12 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.blooddonation.Adapter.DonationAdapter;
 import com.example.blooddonation.Adapter.UrgentRequestAdapter;
-import com.example.blooddonation.Constant.Constant;
 import com.example.blooddonation.R;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
@@ -26,7 +22,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.TimeZone;
+import java.util.List;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -197,6 +193,8 @@ public class UrgentRequestsActivity extends AppCompatActivity {
                             UrgentRequestsActivity.this.runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
+
+
                                     urgentRequestAdapter = new UrgentRequestAdapter(UrgentRequestsActivity.this,jsonArray);
                                     LinearLayoutManager linearLayoutManager = new LinearLayoutManager(UrgentRequestsActivity.this);
                                     linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
