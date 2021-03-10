@@ -50,7 +50,7 @@ public class PostRequestActivity extends AppCompatActivity {
 
      private TextView scheduleTV;
      
-     private EditText contactNumberET;
+     private EditText contactNumberET,hospitalET,districET;
      private String contactPhone;
 
      private SharedPreference sharedPreference;
@@ -64,6 +64,7 @@ public class PostRequestActivity extends AppCompatActivity {
 
         relativeSpinner = findViewById(R.id.relativeSpinner);
         bloodGroupSpinner = findViewById(R.id.bloodGroupSpinner);
+        districET = findViewById(R.id.districET);
 
 
 
@@ -115,6 +116,7 @@ public class PostRequestActivity extends AppCompatActivity {
         String relative = relativeSpinner.getSelectedItem().toString();
         String bloodGroup = bloodGroupSpinner.getSelectedItem().toString();
         String contactPhone = contactNumberET.getText().toString();
+        String districtLocation = districET.getText().toString();
 
 
         if(bloodGroup.equals("A+")){
@@ -145,6 +147,7 @@ public class PostRequestActivity extends AppCompatActivity {
         String police =  "\""+sharedPreference.getUserDetails().get(sharedPreference.KEY_USER_POLICE)+"\"";
         String timeDate = "\""+scheduleTV.getText().toString()+"\"";
         String phone = "\""+contactPhone+"\"";
+        String dis = "\""+districtLocation+"\"";
 
 
 
@@ -153,7 +156,7 @@ public class PostRequestActivity extends AppCompatActivity {
                 "  takeBloodRequest(input: {\n" +
                 "    userIdentityEmail: "+email+"\n" +
                 "    location: {\n" +
-                "      district: "+district+"\n" +
+                "      district: "+dis+"\n" +
                 "      unionName:"+union+"\n" +
                 "      postOffice:"+postoffice+"\n" +
                 "      policeStation:"+police+"\n" +

@@ -13,6 +13,20 @@
             android:layout_height="match_parent">
 
 
+            <TextView
+                android:id="@+id/hospitalTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="216dp"
+                android:text="Hospital"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/relativeSpinner"
+                app:layout_constraintTop_toBottomOf="@+id/relativeSpinner" />
+
             <Spinner
                 android:id="@+id/relativeSpinner"
                 android:layout_width="220dp"
@@ -64,12 +78,12 @@
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/userEmailET"
+                app:layout_constraintStart_toStartOf="@+id/districET"
                 app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
 
             <EditText
-                android:id="@+id/userEmailET"
+                android:id="@+id/districET"
                 android:layout_width="220dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
@@ -80,12 +94,30 @@
                 android:drawableEnd="@drawable/ic_baseline_location_on_24"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
-                android:inputType="textEmailAddress"
+                android:inputType="text"
                 android:textAlignment="textStart"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/emailTextView" />
+
+            <EditText
+                android:id="@+id/hospitalET"
+                android:layout_width="220dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/login_shape"
+                android:drawableTint="@color/Theme"
+                android:ems="10"
+                android:hint="Medical College"
+                android:focusableInTouchMode="true"
+                android:inputType="text"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textAlignment="textStart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/hospitalTV" />
 
             <TextView
                 android:id="@+id/textView7"
@@ -98,7 +130,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/bloodGroupSpinner"
-                app:layout_constraintTop_toBottomOf="@+id/userEmailET" />
+                app:layout_constraintTop_toBottomOf="@+id/districET" />
 
 
             <androidx.appcompat.widget.AppCompatSpinner
@@ -226,13 +258,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="192dp"
                 android:text="Contact Number"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/relativeSpinner"
-                app:layout_constraintTop_toBottomOf="@+id/relativeSpinner" />
+                app:layout_constraintStart_toStartOf="@+id/hospitalET"
+                app:layout_constraintTop_toBottomOf="@+id/hospitalET" />
 
             <EditText
                 android:id="@+id/contactNumberET"
@@ -240,10 +272,9 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
-                android:background="@drawable/spinner_shape"
-
-                android:inputType="textPhonetic"
-                android:hint="Contact Number"
+                android:background="@drawable/login_shape"
+                android:inputType="phone"
+                android:hint="+8801XXXXX"
                 android:paddingLeft="15dp"
                 android:paddingEnd="14dp"
                 android:textAlignment="textStart"
