@@ -23,6 +23,7 @@
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/urgentRowLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -77,9 +78,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:hint="6 days ago"
-                app:layout_constraintEnd_toEndOf="@+id/view"
+                android:textAlignment="textEnd"
+                app:layout_constraintEnd_toEndOf="@+id/bloodGroup"
                 app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/textView26"
+                app:layout_constraintStart_toStartOf="@+id/bloodGroup"
                 app:layout_constraintTop_toBottomOf="@+id/bloodGroup" />
 
             <TextView
@@ -87,14 +89,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="4dp"
                 android:text="O+"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/donationdayCountTV"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/textView26"
+                app:layout_constraintEnd_toEndOf="@+id/imageView22"
+                app:layout_constraintStart_toStartOf="@+id/imageView22"
                 app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
             <ImageView
@@ -161,12 +161,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:text="3 Km"
                 app:layout_constraintBottom_toTopOf="@+id/view"
                 app:layout_constraintStart_toEndOf="@+id/textView38"
-                app:layout_constraintTop_toBottomOf="@+id/monthNameTV" />
+                app:layout_constraintTop_toTopOf="@+id/textView38"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/relationShip"

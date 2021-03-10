@@ -41,7 +41,7 @@ public class ProfileFragment extends Fragment {
 
     private MainAdapter mainAdapter;
 
-    private RecyclerView recyclerView;
+    private RecyclerView profileRecyclerView;
     private ProfileFragmentAdapter profileFragmentAdapter;
 
     private ArrayList<String> fragmentTittle = new ArrayList<>();
@@ -97,16 +97,16 @@ public class ProfileFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         //cardStackView = view.findViewById(R.id.recyclerView);
-        //cardStackView = view.findViewById(R.id.recyclerView);
+        profileRecyclerView = view.findViewById(R.id.profileRecyclerView);
         fragmentTittle.add("Badges");
         fragmentTittle.add("Donation");
         fragmentTittle.add("Request");
         fragmentTittle.add("Info");
         fragmentTittle.add("Contact");
 
-        //cardStackView = view.findViewById(R.id.cardStackView);
 
-        stackView = view.findViewById(R.id.cardStackView);
+
+        //stackView = view.findViewById(R.id.cardStackView);
         profileFragmentAdapter = new ProfileFragmentAdapter(getContext(),fragmentTittle);
         cardStackAdapter = new CardStackAdapter(getContext(),fragmentTittle);
 
@@ -114,13 +114,13 @@ public class ProfileFragment extends Fragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
 
-        //recyclerView.setLayoutManager(linearLayoutManager);
-        //recyclerView.setAdapter(profileFragmentAdapter);
+        profileRecyclerView.setLayoutManager(linearLayoutManager);
+        profileRecyclerView.setAdapter(profileFragmentAdapter);
 
 
 
-        mainAdapter = new MainAdapter(numberWord(),layoutWord(),getContext(),R.layout.cardstack_row);
-        stackView.setAdapter(mainAdapter);
+       // mainAdapter = new MainAdapter(numberWord(),layoutWord(),getContext(),R.layout.cardstack_row);
+        //stackView.setAdapter(mainAdapter);
 
 
     }

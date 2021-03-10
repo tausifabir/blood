@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.hardware.camera2.TotalCaptureResult;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.blooddonation.Adapter.DonationAdapter;
@@ -239,7 +241,7 @@ public class PostRequestActivity extends AppCompatActivity {
 
                         JSONObject json = new JSONObject(res);
 
-                        String code = json.getJSONObject("data").getJSONObject("registerUser").getString("code");
+                        String code = json.getJSONObject("data").getJSONObject("takeBloodRequest").getString("code");
 
                         int codeRequest = Integer.parseInt(code);
 
@@ -248,12 +250,16 @@ public class PostRequestActivity extends AppCompatActivity {
                         Log.e("Initial Query", "onResponse: "+bloodQueryTest);
                         if(codeRequest == 200){
 
-
-                            
+;
                             PostRequestActivity.this.runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
                                     Toast.makeText(PostRequestActivity.this, "Request has posted successfully", Toast.LENGTH_SHORT).show();
+
+
+                                    contactNumberET.setText("");
+                                    relativeSpinner.setSelection(0);
+                                    bloodGroupSpinner.setSelection(0);
                                 }
                             });
 
@@ -308,9 +314,12 @@ public class PostRequestActivity extends AppCompatActivity {
         });
 
 
+
     }
 
     public void selectSchedule(View view) {
+
+
 
         final Calendar calendar = Calendar.getInstance();
         final int year = calendar.get(Calendar.YEAR);
@@ -318,7 +327,7 @@ public class PostRequestActivity extends AppCompatActivity {
         final int day = calendar.get(Calendar.DAY_OF_MONTH);
         DatePickerDialog datePickerDialog =
                 new DatePickerDialog(this, listner, year, month, day);
-        //datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());// disable to take previous dates
+        datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());// disable to take previous dates
         datePickerDialog.show();
     }
 
@@ -334,13 +343,65 @@ public class PostRequestActivity extends AppCompatActivity {
             String selectedDate = simpleDateFormat.format(calendar1.getTime());
 
 
-            String date = simpleDateFormat.format(new Date());
+            String date = simpleDateFormat.format(new Date(year+"/"+(month+1)+"/"+dayOfMonth));
             //birthDateBtn.setText(dayOfMonth+"/"+(month+1)+"/"+year);
             //birthDateBtn.setText(year+"/"+(month+1)+"/"+dayOfMonth);
-            scheduleTV.setText(date);
+            //scheduleTV.setText(date);
 
+
+
+            TimePickerDialog.OnTimeSetListener timeSetListener=new TimePickerDialog.OnTimeSetListener() {
+                @Override
+                public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                    calendar1.set(Calendar.HOUR_OF_DAY,hourOfDay);
+                    calendar1.set(Calendar.MINUTE,minute);
+
+                    SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
+
+                    scheduleTV.setText(simpleDateFormat.format(calendar1.getTime()));
+
+                }
+
+            };
+
+            new TimePickerDialog(PostRequestActivity.this,timeSetListener,calendar1.get(Calendar.HOUR_OF_DAY),calendar1.get(Calendar.MINUTE),false).show();
 
         }
+
+
     };
+
+
+
+
+
+    private void showDateTimeDialog(TextView textView) {
+        final Calendar calendar=Calendar.getInstance();
+        DatePickerDialog.OnDateSetListener dateSetListener=new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                calendar.set(Calendar.YEAR,year);
+                calendar.set(Calendar.MONTH,month);
+                calendar.set(Calendar.DAY_OF_MONTH,dayOfMonth);
+
+                TimePickerDialog.OnTimeSetListener timeSetListener=new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
+                        calendar.set(Calendar.MINUTE,minute);
+
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
+
+                        textView.setText(simpleDateFormat.format(calendar.getTime()));
+                    }
+                };
+
+                new TimePickerDialog(PostRequestActivity.this,timeSetListener,calendar.get(Calendar.HOUR_OF_DAY),calendar.get(Calendar.MINUTE),false).show();
+            }
+        };
+
+        new DatePickerDialog(PostRequestActivity.this,dateSetListener,calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)).show();
+
+    }
 
 }

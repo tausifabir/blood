@@ -70,7 +70,7 @@ public class SignUpActivity7 extends AppCompatActivity {
             String selectedDate = simpleDateFormat.format(calendar1.getTime());
 
 
-            String date = simpleDateFormat.format(new Date());
+            String date = simpleDateFormat.format(new Date(year+"/"+(month+1)+"/"+dayOfMonth));
             //birthDateBtn.setText(dayOfMonth+"/"+(month+1)+"/"+year);
             //birthDateBtn.setText(year+"/"+(month+1)+"/"+dayOfMonth);
             birthDateBtn.setText(date);

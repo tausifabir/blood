@@ -429,7 +429,7 @@ public class LoginActivity extends AppCompatActivity {
                                     @Override
                                     public void run() {
                                         try {
-                                            Toast.makeText(LoginActivity.this, ""+json.getJSONObject("data").getString("login"), Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(LoginActivity.this, ""+json.getJSONObject("data").getJSONObject("login").getJSONArray("errorList").getJSONObject(0).getString("description"), Toast.LENGTH_SHORT).show();
 
                                         } catch (JSONException e) {
                                             e.printStackTrace();

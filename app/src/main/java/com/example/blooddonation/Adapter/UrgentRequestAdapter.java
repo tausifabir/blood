@@ -1,15 +1,21 @@
 package com.example.blooddonation.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.text.Layout;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.blooddonation.Activity.BloodRequestDetailsActivity;
+import com.example.blooddonation.Activity.LoginActivity;
+import com.example.blooddonation.Activity.SignUpActivity1;
 import com.example.blooddonation.R;
 import com.google.gson.JsonArray;
 
@@ -70,10 +76,51 @@ public class UrgentRequestAdapter extends RecyclerView.Adapter<UrgentRequestAdap
                 e.printStackTrace();
             }
 
-            holder.bloodGroup.setText(jsonArray.getJSONObject(position).getJSONObject("bloodRequest").getString("requestedBloodGroup"));
+            //holder.bloodGroup.setText(jsonArray.getJSONObject(position).getJSONObject("bloodRequest").getString("requestedBloodGroup"));
+
+
+            // formating blood group
+            String blood = jsonArray.getJSONObject(position).getJSONObject("bloodRequest").getString("requestedBloodGroup");
+
+            switch (blood){
+                case "a_positive":
+                    holder.bloodGroup.setText("A+");
+                    break;
+                case "b_positive":
+                    holder.bloodGroup.setText("b+");
+                    break;
+                case "o_positive":
+                    holder.bloodGroup.setText("O+");
+                    break;
+                case "ab_positive":
+                    holder.bloodGroup.setText("AB+");
+                    break;
+                case "a_negative":
+                    holder.bloodGroup.setText("A-");
+                    break;
+                case "b_negative":
+                    holder.bloodGroup.setText("b-");
+                    break;
+                case "o_negative":
+                    holder.bloodGroup.setText("O-");
+                    break;
+                default:
+                    holder.bloodGroup.setText("AB-");
+                    break;
+            }
+
             holder.relationShip.setText(jsonArray.getJSONObject(position).getJSONObject("bloodRequest").getString("relationShipWithPatient"));
             holder.locationTV.setText(jsonArray.getJSONObject(position).getJSONObject("bloodRequest").getJSONObject("location").getString("district"));
             holder.donationdayCountTV.setText(ago);
+
+
+            holder.urgentRowLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    context.startActivity(new Intent(context, BloodRequestDetailsActivity.class));
+                }
+            });
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -95,6 +142,8 @@ public class UrgentRequestAdapter extends RecyclerView.Adapter<UrgentRequestAdap
         public TextView relationShip;
         public TextView locationTV;
 
+        public View urgentRowLayout;
+
         public UrgentViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -104,6 +153,7 @@ public class UrgentRequestAdapter extends RecyclerView.Adapter<UrgentRequestAdap
             timeFrame = itemView.findViewById(R.id.timeFrame);
             locationTV = itemView.findViewById(R.id.locationTV);
             donationdayCountTV = itemView.findViewById(R.id.donationdayCountTV);
+            urgentRowLayout = itemView.findViewById(R.id.urgentRowLayout);
 
 
         }
