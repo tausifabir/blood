@@ -8,6 +8,10 @@
     tools:context=".Activity.PostRequestActivity">
 
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -185,7 +189,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:onClick="selectSchedule"
                 android:text="@string/Schedule"
                 android:textColor="@color/Theme"
                 app:layout_constraintEnd_toEndOf="@+id/contactNumberET"
@@ -284,6 +287,9 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
 
 
 

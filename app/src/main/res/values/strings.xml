@@ -6,7 +6,8 @@
     <string name="google_map_api">AIzaSyAumLs5PG1phRmsKPd8iZq1WSS7WRx6HZI</string>
 
 
-    <string-array name="BloodGroup">
+    <string-array name="BloodGroup">\
+
         <item>A+</item>
         <item>A-</item>
         <item>B+</item>
@@ -20,6 +21,7 @@
     </string-array>
 
     <string-array name="Relative">
+
         <item>Father</item>
         <item>Mother</item>
         <item>Brother</item>

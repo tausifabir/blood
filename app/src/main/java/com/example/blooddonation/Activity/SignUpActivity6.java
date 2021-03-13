@@ -50,8 +50,22 @@ public class SignUpActivity6 extends AppCompatActivity {
                 postOffice = userPostET.getText().toString();
                 policeStation = userPoliceET.getText().toString();
 
-                sharedPreference.saveAddress(district,union,postOffice,policeStation);
-                startActivity(new Intent(SignUpActivity6.this,SignUpActivity7.class));
+
+                if(district.isEmpty() || union.isEmpty()|| postOffice.isEmpty()||policeStation.isEmpty() ){
+                    userDistrictET.setError("Field must not be empty");
+                    userUnionET.setError("Field must not be empty");
+                    userPostET.setError("Field must not be empty");
+                    userPoliceET.setError("Field must not be empty");
+
+                }else {
+                   /* userDistrictET.setText("");
+                    userUnionET.setText("");
+                    userDistrictET.setText("");
+                    userPoliceET.setText("");*/
+                    sharedPreference.saveAddress(district,union,postOffice,policeStation);
+                    startActivity(new Intent(SignUpActivity6.this,SignUpActivity7.class));
+                }
+
             }
         });
     }

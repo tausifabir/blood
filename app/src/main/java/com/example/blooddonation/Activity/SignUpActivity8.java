@@ -226,7 +226,7 @@ public class SignUpActivity8 extends AppCompatActivity {
 
                             } catch (JSONException e) {
                                 e.printStackTrace();
-                                Log.e("Exception Query", "onResponse: "+queryRegistration2);
+                                Log.e("Exception Query", "onResponse: "+e);
                             }
 
                         }else{

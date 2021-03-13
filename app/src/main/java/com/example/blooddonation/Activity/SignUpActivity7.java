@@ -39,7 +39,7 @@ public class SignUpActivity7 extends AppCompatActivity {
             public void onClick(View v) {
 
                 dateOfBirth = birthDateBtn.getText().toString();
-               sharedPreference.saveBirthDate(dateOfBirth);
+                sharedPreference.saveBirthDate(dateOfBirth);
                 startActivity(new Intent(SignUpActivity7.this,SignUpActivity9.class));
             }
         });

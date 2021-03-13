@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,6 +28,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import okhttp3.FormBody;
 import okhttp3.MediaType;
@@ -53,6 +56,10 @@ public class LoginActivity extends AppCompatActivity {
     private EditText userEmailET,userPassET;
 
     private  String  userPass, userEmail;
+
+    String regex = "^(.+)@(.+)$";
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -297,6 +304,8 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
+
+
         OkHttpClient okHttpClient = new OkHttpClient();
 
 
@@ -364,13 +373,16 @@ public class LoginActivity extends AppCompatActivity {
                 .build();
 
 
-        if(userEmail.isEmpty() || userPass.isEmpty()){
 
-            userEmailET.setError("Field must not be empty");
+
+
+        if(userEmail.isEmpty()){
+            userEmailET.setError("Field must no t be empty");
+        }else if(!Patterns.EMAIL_ADDRESS.matcher(userEmail).matches()){
+            userEmailET.setError("Please provide correct email format");
+        }else if(userPass.isEmpty()){
             userPassET.setError("Field must not be empty");
-
-        }else{
-
+        } else{
 
             okHttpClient.newCall(request).enqueue(new okhttp3.Callback() {
                 @Override
@@ -401,9 +413,7 @@ public class LoginActivity extends AppCompatActivity {
                             String res = response.body().string();
                             JSONObject json = new JSONObject(res);
 
-                            Log.e("CatchResponse: ", "onResponse: "+res );
 
-                            Log.e("OkHTTPSuccess", "onResponse: "+baseUrl );
 
                             String code = json.getJSONObject("data").getJSONObject("login").getString("code");
 
@@ -414,11 +424,12 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-                                sharedPreference.saveUserEmailLogin(userEmail);
+
 
                                 String token = json.getJSONObject("data").getJSONObject("login").getString("data");
                                 sharedPreference.saveToken(token);
-                                Log.e("TOKEN", "onResponse: "+token );
+                                sharedPreference.saveUserEmailLogin(userEmail);
+                                Log.e("TOKEN", "onResponse: "+sharedPreference.getUserEmailLogin());
                                 startActivity(new Intent(LoginActivity.this,HomeActivity.class));
 
 
@@ -430,6 +441,8 @@ public class LoginActivity extends AppCompatActivity {
                                     public void run() {
                                         try {
                                             Toast.makeText(LoginActivity.this, ""+json.getJSONObject("data").getJSONObject("login").getJSONArray("errorList").getJSONObject(0).getString("description"), Toast.LENGTH_SHORT).show();
+                                            String data = json.getString("data");
+
 
                                         } catch (JSONException e) {
                                             e.printStackTrace();
@@ -443,7 +456,13 @@ public class LoginActivity extends AppCompatActivity {
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            Log.e("TAG", "onResponse: "+e );
+                            Log.e("Exception", "onResponse: "+e );
+                            LoginActivity.this.runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(LoginActivity.this, "Wrong Password", Toast.LENGTH_SHORT).show();
+                                }
+                            });
                         }
 
                     }
@@ -454,6 +473,18 @@ public class LoginActivity extends AppCompatActivity {
         }
 
 
+    }
+
+
+
+    private boolean isValidEmail(String email)
+    {
+        String emailRegex ="^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+        if(email.matches(regex))
+        {
+            return true;
+        }
+        return false;
     }
 
 }

@@ -2,28 +2,25 @@ package com.example.blooddonation.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.text.Layout;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.blooddonation.Activity.BloodRequestDetailsActivity;
-import com.example.blooddonation.Activity.LoginActivity;
-import com.example.blooddonation.Activity.SignUpActivity1;
 import com.example.blooddonation.R;
-import com.google.gson.JsonArray;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 
 public class UrgentRequestAdapter extends RecyclerView.Adapter<UrgentRequestAdapter.UrgentViewHolder> {
 
@@ -64,6 +61,7 @@ public class UrgentRequestAdapter extends RecyclerView.Adapter<UrgentRequestAdap
             String timeAgo = jsonArray.getJSONObject(position).getJSONObject("bloodRequest").getString("timeFrame");
 
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
+            SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
 
 
             // calculating Time Ago from blood Time Frame
@@ -76,10 +74,8 @@ public class UrgentRequestAdapter extends RecyclerView.Adapter<UrgentRequestAdap
                 e.printStackTrace();
             }
 
-            //holder.bloodGroup.setText(jsonArray.getJSONObject(position).getJSONObject("bloodRequest").getString("requestedBloodGroup"));
 
-
-            // formating blood group
+            // formatting blood group
             String blood = jsonArray.getJSONObject(position).getJSONObject("bloodRequest").getString("requestedBloodGroup");
 
             switch (blood){
@@ -111,20 +107,42 @@ public class UrgentRequestAdapter extends RecyclerView.Adapter<UrgentRequestAdap
 
             holder.relationShip.setText(jsonArray.getJSONObject(position).getJSONObject("bloodRequest").getString("relationShipWithPatient"));
             holder.locationTV.setText(jsonArray.getJSONObject(position).getJSONObject("bloodRequest").getJSONObject("location").getString("district"));
-            holder.donationdayCountTV.setText(ago);
+            holder.timeFrame.setText(jsonArray.getJSONObject(position).getJSONObject("bloodRequest").getString("timeFrame"));
+            holder.donationDayCountTV.setText(ago);
+
+
+            String bloodRequesterName =jsonArray.getJSONObject(position).getJSONObject("bloodRequester").getString("name");;
+            String requesterPhone = jsonArray.getJSONObject(position).getJSONObject("bloodRequester").getString("mobileNumber");
+            String requesterAltPhone = jsonArray.getJSONObject(position).getJSONObject("bloodRequester").getString("alternateMobileNumber");
+            String requestedBlood = blood;
+            String requestedLocation = jsonArray.getJSONObject(position).getJSONObject("bloodRequest").getJSONObject("location").getString("district");
+            String timeFrame = jsonArray.getJSONObject(position).getJSONObject("bloodRequest").getString("timeFrame");
 
 
             holder.urgentRowLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
-                    context.startActivity(new Intent(context, BloodRequestDetailsActivity.class));
+
+
+                    context.startActivity(new Intent(context, BloodRequestDetailsActivity.class)
+                        .putExtra("bloodRequesterName",bloodRequesterName)
+                        .putExtra("requesterPhone",requesterPhone)
+                        .putExtra("requesterAltPhone",requesterAltPhone)
+                        .putExtra("requestedBlood",requestedBlood)
+                        .putExtra("requestedLocation",requestedLocation)
+                        .putExtra("timeFrame",timeFrame));
                 }
             });
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
+
+
+
+
     }
 
     @Override
@@ -138,11 +156,12 @@ public class UrgentRequestAdapter extends RecyclerView.Adapter<UrgentRequestAdap
 
         public TextView emergencyTV;
         public TextView bloodGroup;
-        public TextView timeFrame,donationdayCountTV;
+        public TextView timeFrame, donationDayCountTV;
         public TextView relationShip;
         public TextView locationTV;
+        public TextView dateNameTV;
 
-        public View urgentRowLayout;
+        public CardView urgentRowLayout;
 
         public UrgentViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -152,7 +171,8 @@ public class UrgentRequestAdapter extends RecyclerView.Adapter<UrgentRequestAdap
             relationShip = itemView.findViewById(R.id.relationShip);
             timeFrame = itemView.findViewById(R.id.timeFrame);
             locationTV = itemView.findViewById(R.id.locationTV);
-            donationdayCountTV = itemView.findViewById(R.id.donationdayCountTV);
+            dateNameTV = itemView.findViewById(R.id.dateNameTV);
+            donationDayCountTV = itemView.findViewById(R.id.donationdayCountTV);
             urgentRowLayout = itemView.findViewById(R.id.urgentRowLayout);
 
 

@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -105,6 +106,13 @@ public class PostRequestActivity extends AppCompatActivity {
         recentHistoryRecyclerView.setAdapter(postRequestAdapter);
 
         postRequestAdapter.notifyDataSetChanged();
+
+        scheduleTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDateTimeDialog(scheduleTV);
+            }
+        });
     }
 
     public void postBloodRequest(View view) {
@@ -141,7 +149,6 @@ public class PostRequestActivity extends AppCompatActivity {
         String blood =  "\""+bloodChanged+"\"";
 
         String email =  "\""+sharedPreference.getUserEmailLogin()+"\"";
-        String district =  "\""+sharedPreference.getUserDetails().get(sharedPreference.KEY_USER_DISTRICT)+"\"";
         String union =  "\""+sharedPreference.getUserDetails().get(sharedPreference.KEY_USER_UNION)+"\"";
         String postoffice =  "\""+sharedPreference.getUserDetails().get(sharedPreference.KEY_USER_POSTOFFICE)+"\"";
         String police =  "\""+sharedPreference.getUserDetails().get(sharedPreference.KEY_USER_POLICE)+"\"";
@@ -261,6 +268,7 @@ public class PostRequestActivity extends AppCompatActivity {
 
 
                                     contactNumberET.setText("");
+                                    districET.setText("");
                                     relativeSpinner.setSelection(0);
                                     bloodGroupSpinner.setSelection(0);
                                 }
@@ -279,6 +287,7 @@ public class PostRequestActivity extends AppCompatActivity {
                                 @Override
                                 public void run() {
                                     Toast.makeText(PostRequestActivity.this, "Request Failed", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(PostRequestActivity.this,HomeActivity.class));
                                 }
                             });
 
@@ -286,12 +295,12 @@ public class PostRequestActivity extends AppCompatActivity {
                             Log.e("Failed Response", "onResponse: "+res );
 
                             Log.e("response Failed", "onResponse: "+json.getJSONObject("data").
-                                    getJSONObject("registerUser").getJSONArray("errorList")
+                                    getJSONObject("takeBloodRequest").getJSONArray("errorList")
                                     .getJSONObject(3).getString("description") );
 
 
                             Toast.makeText(PostRequestActivity.this, ""+json.getJSONObject("data").
-                                    getJSONObject("registerUser").getJSONArray("errorList")
+                                    getJSONObject("takeBloodRequest").getJSONArray("errorList")
                                     .getJSONObject(3).getString("description"), Toast.LENGTH_SHORT).show();
 
 
@@ -301,7 +310,8 @@ public class PostRequestActivity extends AppCompatActivity {
                         Log.e("Error", "onResponse: "+res);
                         e.printStackTrace();
                         Log.e("Exception Query", "onResponse: "+bloodQueryTest);
-                        String tokens = sharedPreference.getToken();
+
+
 
                     }
 
@@ -318,67 +328,19 @@ public class PostRequestActivity extends AppCompatActivity {
 
 
 
-    }
-
-    public void selectSchedule(View view) {
 
 
-
-        final Calendar calendar = Calendar.getInstance();
-        final int year = calendar.get(Calendar.YEAR);
-        final int month = calendar.get(Calendar.MONTH);
-        final int day = calendar.get(Calendar.DAY_OF_MONTH);
-        DatePickerDialog datePickerDialog =
-                new DatePickerDialog(this, listner, year, month, day);
-        datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());// disable to take previous dates
-        datePickerDialog.show();
     }
 
 
-    private DatePickerDialog.OnDateSetListener listner = new DatePickerDialog.OnDateSetListener() {
-        @Override
-        public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-
-            final  Calendar calendar1 = Calendar.getInstance();
-            calendar1.set(dayOfMonth,month,year);
-
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
-            String selectedDate = simpleDateFormat.format(calendar1.getTime());
-
-
-            String date = simpleDateFormat.format(new Date(year+"/"+(month+1)+"/"+dayOfMonth));
-            //birthDateBtn.setText(dayOfMonth+"/"+(month+1)+"/"+year);
-            //birthDateBtn.setText(year+"/"+(month+1)+"/"+dayOfMonth);
-            //scheduleTV.setText(date);
-
-
-
-            TimePickerDialog.OnTimeSetListener timeSetListener=new TimePickerDialog.OnTimeSetListener() {
-                @Override
-                public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                    calendar1.set(Calendar.HOUR_OF_DAY,hourOfDay);
-                    calendar1.set(Calendar.MINUTE,minute);
-
-                    SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
-
-                    scheduleTV.setText(simpleDateFormat.format(calendar1.getTime()));
-
-                }
-
-            };
-
-            new TimePickerDialog(PostRequestActivity.this,timeSetListener,calendar1.get(Calendar.HOUR_OF_DAY),calendar1.get(Calendar.MINUTE),false).show();
-
-        }
-
-
-    };
 
 
 
 
 
-    private void showDateTimeDialog(TextView textView) {
+
+
+    private void showDateTimeDialog(final TextView scheduleTV) {
         final Calendar calendar=Calendar.getInstance();
         DatePickerDialog.OnDateSetListener dateSetListener=new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -393,9 +355,9 @@ public class PostRequestActivity extends AppCompatActivity {
                         calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
                         calendar.set(Calendar.MINUTE,minute);
 
-                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
+                        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
 
-                        textView.setText(simpleDateFormat.format(calendar.getTime()));
+                        scheduleTV.setText(simpleDateFormat.format(calendar.getTime()));
                     }
                 };
 
@@ -406,5 +368,70 @@ public class PostRequestActivity extends AppCompatActivity {
         new DatePickerDialog(PostRequestActivity.this,dateSetListener,calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)).show();
 
     }
+
+
+
+/*
+    public void selectSchedule(View view) {
+
+
+
+        final Calendar calendar = Calendar.getInstance();
+        final int year = calendar.get(Calendar.YEAR);
+        final int month = calendar.get(Calendar.MONTH);
+        final int day = calendar.get(Calendar.DAY_OF_MONTH);
+        DatePickerDialog datePickerDialog =
+                new DatePickerDialog(this, dateSetListener, year, month, day);
+        datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());// disable to take previous dates
+
+
+        datePickerDialog.show();
+
+
+    }
+
+
+
+
+
+    private DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+
+            final Calendar calendar = Calendar.getInstance();
+            calendar.set(dayOfMonth, month, year);
+
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
+            String selectedDate = simpleDateFormat.format(calendar.getTime());
+
+
+            String date = simpleDateFormat.format(new Date(year + "/" + (month + 1) + "/" + dayOfMonth));
+            //birthDateBtn.setText(dayOfMonth+"/"+(month+1)+"/"+year);
+            //birthDateBtn.setText(year+"/"+(month+1)+"/"+dayOfMonth);
+            scheduleTV.setText(date);
+
+
+            TimePickerDialog.OnTimeSetListener timeSetListener = new TimePickerDialog.OnTimeSetListener() {
+                @Override
+                public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                    calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
+                    calendar.set(Calendar.MINUTE, minute);
+
+                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
+
+                    scheduleTV.setText(simpleDateFormat.format(calendar.getTime()));
+
+                }
+
+            };
+
+            new TimePickerDialog(PostRequestActivity.this, timeSetListener, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), false).show();
+
+        }
+
+
+
+    };
+*/
 
 }

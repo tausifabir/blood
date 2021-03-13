@@ -96,23 +96,6 @@ public class UrgentRequestsActivity extends AppCompatActivity {
     }
 
 
-    public String calculateTimeAgo(String dateTime){
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
-
-
-        try{
-            long time = format.parse(dateTime).getTime();
-            long now = System.currentTimeMillis();
-            CharSequence ago = DateUtils.getRelativeTimeSpanString(time,now,DateUtils.DAY_IN_MILLIS);
-
-            return ago+"";
-        }catch (Exception e){
-
-            e.printStackTrace();
-        }
-
-        return "";
-    }
 
     private void getApi() {
 
@@ -148,12 +131,47 @@ public class UrgentRequestsActivity extends AppCompatActivity {
 
 
 
+        String getAllRequestQuery1 = "\n" +
+                "query {\n" +
+                "  getAllBloodRequestInformation{\n" +
+                "    status\n" +
+                "    code\n" +
+                "   \n" +
+                "    \n" +
+                "  \n" +
+                "    bloodRequestInformationSet{\n" +
+                "      id\n" +
+                "    \n" +
+                "      bloodRequester{\n" +
+                "        name\n" +
+                "        email\n" +
+                "        mobileNumber\n" +
+                "        alternateMobileNumber\n" +
+                "      }\n" +
+                "      bloodRequest{\n" +
+                "        location{\n" +
+                "          district\n" +
+                "        }\n" +
+                "        requestedBloodGroup\n" +
+                "        timeFrame\n" +
+                "        relationShipWithPatient\n" +
+                "      }\n" +
+                "    }\n" +
+                "    errorList{\n" +
+                "      code\n" +
+                "      field\n" +
+                "      message \n" +
+                "      description\n" +
+                "    }\n" +
+                "  }\n" +
+                "}";
+
         OkHttpClient okHttpClient = new OkHttpClient();
 
 
         JSONObject jsonObject = new JSONObject();
         try {
-            jsonObject.put("query",getAllRequestQuery);
+            jsonObject.put("query",getAllRequestQuery1);
         } catch (JSONException e) {
             e.printStackTrace();
         }

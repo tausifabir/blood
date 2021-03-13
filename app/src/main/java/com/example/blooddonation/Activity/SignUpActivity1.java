@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -49,15 +50,16 @@ public class SignUpActivity1 extends AppCompatActivity {
                 userConPass = userRegisterConfirmPassET.getText().toString();
 
 
-                if(userPass.isEmpty() || userConPass.isEmpty()|| userEmail.isEmpty()){
-                    userRegisterEmailET.setError("Field must not be empty");
+                if(userEmail.isEmpty()|| !Patterns.EMAIL_ADDRESS.matcher(userEmail).matches()){
+                    userRegisterEmailET.setError("Wrong email address");
+                }else if(userPass.isEmpty()) {
                     userRegisterPassET.setError("Field must not be empty");
-                    userRegisterConfirmPassET.setError("Field must not be empty");
-
-                }else if(userPass.length()< 7 || userConPass.length()<7){
-                    userRegisterPassET.setError("Pass must be 8 character");
+                }else if(userPass.length()< 7){
+                    userRegisterPassET.setError("Password must be 8 character");
                     userRegisterConfirmPassET.setError("Pass must be 8 character");
-                }else{
+                }else if(!userPass.equals(userConPass)){
+                    userRegisterConfirmPassET.setError("Password must be same");
+                } else{
                     sharedPreference.saveUserEmail(userEmail,userPass,userConPass);
                     startActivity(new Intent(SignUpActivity1.this,SignUpActivity2.class));
                 }

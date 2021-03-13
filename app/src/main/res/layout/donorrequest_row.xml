@@ -8,18 +8,17 @@
 
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/urgentRowLayout"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="wrap_content"
         app:cardCornerRadius="15dp"
         app:cardElevation="2dp"
-        app:cardMaxElevation="15dp"
         android:padding="5dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/earth"
+        android:id="@+id/scheduleLayout"
+
         >
 
 
@@ -29,7 +28,7 @@
 
 
             <TextView
-                android:id="@+id/timeFrame"
+                android:id="@+id/monthNameTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
@@ -53,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:hint="Emergency"
+                android:hint="Schedule"
                 android:textColor="@color/black"
                 android:textSize="32sp"
                 android:textStyle="bold"
@@ -78,10 +77,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:hint="6 days ago"
-                android:textAlignment="textEnd"
-                app:layout_constraintEnd_toEndOf="@+id/bloodGroup"
+                app:layout_constraintEnd_toEndOf="@+id/view"
                 app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/bloodGroup"
+                app:layout_constraintStart_toStartOf="@+id/textView26"
                 app:layout_constraintTop_toBottomOf="@+id/bloodGroup" />
 
             <TextView
@@ -89,12 +87,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="4dp"
                 android:text="O+"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/imageView22"
-                app:layout_constraintStart_toStartOf="@+id/imageView22"
+                app:layout_constraintEnd_toEndOf="@+id/donationdayCountTV"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/textView26"
                 app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
             <ImageView
@@ -113,7 +113,7 @@
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/contact_text_shape"
-                android:text="Contact"
+                android:text="Edit"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toStartOf="@+id/imageView22"
@@ -128,7 +128,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
-                android:background="@color/Theme"
+                android:background="#7C6767"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/donationdayCountTV" />
@@ -141,7 +141,7 @@
                 android:layout_marginBottom="8dp"
                 android:text="Dhaka Medical College"
                 app:layout_constraintBottom_toTopOf="@+id/view"
-                app:layout_constraintStart_toStartOf="@+id/dateNameTV"
+                app:layout_constraintStart_toStartOf="@+id/view"
                 app:layout_constraintTop_toBottomOf="@+id/dateNameTV" />
 
             <TextView
@@ -161,19 +161,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:text="3 Km"
                 app:layout_constraintBottom_toTopOf="@+id/view"
                 app:layout_constraintStart_toEndOf="@+id/textView38"
-                app:layout_constraintTop_toTopOf="@+id/textView38"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toBottomOf="@+id/monthNameTV" />
 
             <TextView
                 android:id="@+id/relationShip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="Husband"
+                android:text="Brother"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/view"
                 app:layout_constraintTop_toBottomOf="@+id/view"

@@ -21,7 +21,7 @@ public class SignUpActivity9 extends AppCompatActivity {
     private Button bloodDonationBtn,signUpNextBtn;
     private SharedPreference sharedPreference;
 
-    String donationDate;
+    private String donationDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,7 @@ public class SignUpActivity9 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 donationDate = bloodDonationBtn.getText().toString();
-                sharedPreference.saveBirthDate(donationDate);
+                sharedPreference.saveDonationDate(donationDate);
                 startActivity(new Intent(SignUpActivity9.this,SignUpActivity8.class));
             }
         });

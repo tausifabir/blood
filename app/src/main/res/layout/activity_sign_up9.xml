@@ -134,6 +134,7 @@
             android:background="@drawable/login_button_shape"
             android:backgroundTint="#c70100"
             android:text="Skip"
+            android:visibility="gone"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
